@@ -307,12 +307,12 @@ export function CatalogGrid() {
               Descarga el catálogo completo con medidas, gramajes y precios.
             </h3>
             <p className="mt-4 text-ink/65 text-[15.5px]">
-              PDF oficial Hiperprint · ~2 MB
+              PDF oficial Hiperprint · ~4.5 MB
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col sm:flex-row gap-3 lg:justify-end">
             <a
-              href="/catalogo/catalogo-hiperprint-2020.pdf"
+              href="/catalogo/catalogo-hiperprint-2021.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
