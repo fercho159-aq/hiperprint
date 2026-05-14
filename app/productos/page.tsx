@@ -336,7 +336,7 @@ function Process() {
           >
             De la cotización a tu cocina,
             <br />
-            <em className="font-medium text-sage">en cuatro pasos</em>.
+            <em className="font-medium text-tortilla">en cuatro pasos</em>.
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-paper/15">

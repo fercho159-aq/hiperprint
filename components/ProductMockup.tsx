@@ -21,6 +21,10 @@ const TONES: Record<MockupTone, string> = {
   ink: "bg-ink",
 };
 
+// Tones with dark surfaces need light text. sage/deep/tortilla/ink all alias to
+// dark brand colors (navy, terracotta, ink) after the brand-palette migration.
+const DARK_TONES: MockupTone[] = ["sage", "deep", "tortilla", "ink"];
+
 export function ProductMockup({
   label,
   tone = "kraft",
@@ -29,8 +33,7 @@ export function ProductMockup({
   note,
   children,
 }: ProductMockupProps) {
-  const textColor =
-    tone === "ink" || tone === "tortilla" || tone === "deep" ? "text-paper/80" : "text-ink/65";
+  const textColor = DARK_TONES.includes(tone) ? "text-paper/80" : "text-ink/65";
   return (
     <div
       className={`${TONES[tone]} ${className} relative w-full overflow-hidden rounded-lg fine-grain`}

@@ -147,15 +147,15 @@ export function BigForm() {
 
           <form
             onSubmit={onSubmit}
-            className="lg:col-span-8 reveal bg-ink rounded-xl p-8 lg:p-12 text-paper relative overflow-hidden"
+            className="lg:col-span-8 reveal bg-navyDeep rounded-xl p-8 lg:p-12 text-paper relative overflow-hidden"
           >
-            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-leaf/15 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-tortilla/15 blur-3xl pointer-events-none" />
+            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-tortilla/20 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-navy/25 blur-3xl pointer-events-none" />
 
             {!sent && (
               <>
                 <div className="flex items-center gap-3 mb-8">
-                  <span className="font-mono text-[10.5px] tracking-[.18em] uppercase text-paper/55">
+                  <span className="font-mono text-[10.5px] tracking-[.18em] uppercase text-paper/80">
                     PASO
                   </span>
                   <div className="flex items-center gap-2">
@@ -164,7 +164,7 @@ export function BigForm() {
                         key={s}
                         className={`w-8 h-8 rounded-full inline-flex items-center justify-center font-mono text-[12px] ${
                           step === s
-                            ? "bg-leaf text-paper"
+                            ? "bg-terracotta text-paper"
                             : step > s
                               ? "bg-paper/15 text-paper/80"
                               : "border border-paper/20 text-paper/40"
@@ -175,7 +175,7 @@ export function BigForm() {
                     ))}
                   </div>
                   <span className="h-px flex-1 bg-paper/15" />
-                  <span className="font-mono text-[10.5px] tracking-[.18em] uppercase text-paper/55">
+                  <span className="font-mono text-[10.5px] tracking-[.18em] uppercase text-paper/80">
                     {step === 1 ? "TU PEDIDO" : "TUS DATOS"}
                   </span>
                 </div>
@@ -201,8 +201,8 @@ export function BigForm() {
                             onClick={() => setForm((f) => ({ ...f, necesidad: k }))}
                             className={`text-left p-4 rounded-lg border transition ${
                               form.necesidad === k
-                                ? "border-leaf bg-leaf/10"
-                                : "border-paper/15 hover:border-paper/40"
+                                ? "border-terracotta bg-terracotta/15"
+                                : "border-paper/20 hover:border-terracotta"
                             }`}
                           >
                             <div
@@ -221,7 +221,7 @@ export function BigForm() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                           Volumen aproximado
                         </label>
                         <select
@@ -238,7 +238,7 @@ export function BigForm() {
                         </select>
                       </div>
                       <div>
-                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                           ¿Para cuándo lo necesitas?
                         </label>
                         <input
@@ -252,17 +252,19 @@ export function BigForm() {
                     </div>
 
                     <div>
-                      <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                      <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                         ¿Ya tienes arte / diseño?
                       </label>
-                      <div className="inline-flex rounded-md border border-paper/15 overflow-hidden">
+                      <div className="inline-flex rounded-md border border-paper/20 overflow-hidden">
                         {ARTE_OPTIONS.map((o) => (
                           <button
                             key={o.v}
                             type="button"
                             onClick={() => setForm((f) => ({ ...f, arte: o.v }))}
                             className={`px-4 py-2.5 text-[14px] font-medium transition ${
-                              form.arte === o.v ? "bg-leaf text-paper" : "text-paper/70 hover:bg-paper/5"
+                              form.arte === o.v
+                                ? "bg-terracotta text-paper"
+                                : "text-paper/80 hover:bg-paper/10"
                             }`}
                           >
                             {o.l}
@@ -272,7 +274,7 @@ export function BigForm() {
                     </div>
 
                     <div>
-                      <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                      <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                         Cuéntanos más (opcional)
                       </label>
                       <textarea
@@ -291,7 +293,7 @@ export function BigForm() {
                       <button
                         type="button"
                         onClick={() => setStep(2)}
-                        className="btn btn-primary"
+                        className="btn btn-tortilla"
                       >
                         Continuar <ArrowIcon className="w-4 h-4" />
                       </button>
@@ -313,7 +315,7 @@ export function BigForm() {
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                           Nombre
                         </label>
                         <input
@@ -325,7 +327,7 @@ export function BigForm() {
                         />
                       </div>
                       <div>
-                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                           Empresa
                         </label>
                         <input
@@ -336,7 +338,7 @@ export function BigForm() {
                         />
                       </div>
                       <div>
-                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                           WhatsApp
                         </label>
                         <input
@@ -349,7 +351,7 @@ export function BigForm() {
                         />
                       </div>
                       <div>
-                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+                        <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
                           Email
                         </label>
                         <input
@@ -363,7 +365,7 @@ export function BigForm() {
                     </div>
 
                     <div className="bg-paper/5 rounded-lg p-5 border border-paper/10">
-                      <div className="font-mono text-[10.5px] tracking-[.18em] uppercase text-paper/55 mb-2">
+                      <div className="font-mono text-[10.5px] tracking-[.18em] uppercase text-paper/80 mb-2">
                         RESUMEN
                       </div>
                       <ul className="space-y-1 text-[14px] text-paper/85">
@@ -402,7 +404,7 @@ export function BigForm() {
                       </button>
                       <button
                         type="submit"
-                        className="btn btn-primary"
+                        className="btn btn-tortilla"
                       >
                         Enviar cotización <ArrowIcon className="w-4 h-4" />
                       </button>
@@ -421,7 +423,7 @@ export function BigForm() {
 
             {sent && (
               <div className="text-center py-10 relative">
-                <div className="w-20 h-20 mx-auto rounded-full bg-leaf text-paper inline-flex items-center justify-center mb-6">
+                <div className="w-20 h-20 mx-auto rounded-full bg-terracotta text-paper inline-flex items-center justify-center mb-6">
                   <CheckIcon className="w-8 h-8" />
                 </div>
                 <h3

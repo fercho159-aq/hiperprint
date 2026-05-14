@@ -368,7 +368,7 @@ function Eco() {
     { Icon: PinIcon, title: "Producción local en CDMX", body: "Planta propia en Iztapalapa, cadena de suministro corta." },
   ];
   return (
-    <section className="relative grain bg-sage">
+    <section className="relative grain bg-cream border-y border-ink/10">
       <div className="mx-auto max-w-site px-6 lg:px-10 py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 reveal">
@@ -398,10 +398,10 @@ function Eco() {
               <span className="font-mono text-[11px] tracking-[.18em] uppercase text-ink/55">
                 CERTIFICACIONES
               </span>
-              <span className="px-3 py-1.5 bg-paper/60 rounded-md font-mono text-[12px] tracking-wider">
+              <span className="px-3 py-1.5 bg-paper border border-ink/10 rounded-md font-mono text-[12px] tracking-wider text-ink/80">
                 FDA · GRADO ALIMENTICIO
               </span>
-              <span className="px-3 py-1.5 bg-paper/60 rounded-md font-mono text-[12px] tracking-wider">
+              <span className="px-3 py-1.5 bg-paper border border-ink/10 rounded-md font-mono text-[12px] tracking-wider text-ink/80">
                 FSC · PAPEL TRAZABLE
               </span>
             </div>

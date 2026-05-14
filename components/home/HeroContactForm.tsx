@@ -67,10 +67,10 @@ export function HomeContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="lg:col-span-7 reveal bg-ink rounded-xl p-8 lg:p-12 text-paper relative overflow-hidden"
+      className="lg:col-span-7 reveal bg-navyDeep rounded-xl p-8 lg:p-12 text-paper relative overflow-hidden"
     >
-      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-leaf/15 blur-3xl pointer-events-none" />
-      <div className="font-mono text-[11px] tracking-[.18em] uppercase text-paper/55 mb-6">
+      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-terracotta/20 blur-3xl pointer-events-none" />
+      <div className="font-mono text-[11px] tracking-[.18em] uppercase text-paper/80 mb-6">
         {"// COTIZACIÓN EXPRESS"}
       </div>
       <h3
@@ -81,7 +81,7 @@ export function HomeContactForm() {
       </h3>
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 relative">
         <div>
-          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
             Nombre
           </label>
           <input
@@ -93,7 +93,7 @@ export function HomeContactForm() {
           />
         </div>
         <div>
-          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
             Empresa
           </label>
           <input
@@ -104,7 +104,7 @@ export function HomeContactForm() {
           />
         </div>
         <div>
-          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
             WhatsApp
           </label>
           <input
@@ -117,7 +117,7 @@ export function HomeContactForm() {
           />
         </div>
         <div>
-          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
             ¿Qué necesitas?
           </label>
           <select
@@ -133,7 +133,7 @@ export function HomeContactForm() {
           </select>
         </div>
         <div className="md:col-span-2">
-          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/55 mb-2">
+          <label className="block font-mono text-[10.5px] tracking-[.16em] uppercase text-paper/80 mb-2">
             Cuéntanos más <span className="opacity-60">(opcional)</span>
           </label>
           <textarea
@@ -146,7 +146,7 @@ export function HomeContactForm() {
         </div>
       </div>
       <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-4">
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-tortilla">
           {sent ? "Abriendo WhatsApp…" : "Enviar por WhatsApp"} <ArrowIcon className="w-4 h-4" />
         </button>
         <p className="text-paper/55 text-[13px] font-mono">
@@ -155,7 +155,7 @@ export function HomeContactForm() {
       </div>
       <div
         aria-live="polite"
-        className={`mt-5 text-leaf text-[14px] font-mono transition-opacity ${sent ? "opacity-100" : "opacity-0"}`}
+        className={`mt-5 text-terracotta text-[14px] font-mono transition-opacity ${sent ? "opacity-100" : "opacity-0"}`}
       >
         ✓ Abriendo WhatsApp con tu cotización…
       </div>
