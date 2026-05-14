@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowIcon, ArrowDownIcon, ArrowLeftIcon, WaIcon, XIcon } from "../icons";
+import { buildWhatsAppUrl } from "../whatsapp";
 import {
   BOLSA,
   BOLSA_BLAHO,
@@ -156,15 +157,22 @@ function Lightbox({ item, onClose, onPrev, onNext }: LightboxProps) {
             </div>
           </div>
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
-            <Link href="/contacto" className="btn btn-primary">
-              Cotizar este ítem <ArrowIcon className="w-4 h-4" />
-            </Link>
             <a
-              href="https://wa.me/525550875427"
+              href={buildWhatsAppUrl(
+                `Hola Hiperprint, me interesa cotizar el SKU ${item.sku} — ${item.name}.`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              <WaIcon className="w-4 h-4" /> Cotizar por WhatsApp <ArrowIcon className="w-4 h-4" />
+            </a>
+            <Link
+              href="/contacto"
               className="btn btn-secondary !border-paper !text-paper hover:!bg-paper hover:!text-ink"
             >
-              <WaIcon className="w-4 h-4" /> WhatsApp
-            </a>
+              Ver formulario
+            </Link>
           </div>
         </div>
       </div>
@@ -299,16 +307,27 @@ export function CatalogGrid() {
               Descarga el catálogo completo con medidas, gramajes y precios.
             </h3>
             <p className="mt-4 text-ink/65 text-[15.5px]">
-              12 MB · Última actualización: marzo 2026
+              PDF oficial Hiperprint · ~2 MB
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col sm:flex-row gap-3 lg:justify-end">
-            <a href="#" className="btn btn-primary">
+            <a
+              href="/catalogo/catalogo-hiperprint-2020.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
               <ArrowDownIcon className="w-4 h-4" /> Descargar PDF
             </a>
-            <Link href="/contacto" className="btn btn-secondary">
-              Pide muestras físicas
-            </Link>
+            <a
+              href={buildWhatsAppUrl("Hola, me gustaría ver el catálogo.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              <WaIcon className="w-4 h-4" /> Ver por WhatsApp
+            </a>
           </div>
         </div>
       </div>

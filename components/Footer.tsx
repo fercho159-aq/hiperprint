@@ -105,7 +105,12 @@ export function Footer() {
                   {g.links.map((l) =>
                     l.external ? (
                       <li key={l.l}>
-                        <a href={l.h} className="hover:text-paper transition">
+                        <a
+                          href={l.h}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-paper transition"
+                        >
                           {l.l}
                         </a>
                       </li>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowIcon, MinusIcon, PlusIcon, WaIcon } from "../icons";
+import { buildWhatsAppUrl } from "../whatsapp";
 
 interface FaqItem {
   q: string;
@@ -57,7 +58,9 @@ export function FAQ() {
               ¿No encuentras tu duda? Mándanos WhatsApp, te respondemos directo.
             </p>
             <a
-              href="https://wa.me/525550875427"
+              href={buildWhatsAppUrl("Hola Hiperprint, tengo una duda.")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 font-medium text-leaf hover:gap-3 transition-all"
             >
               <WaIcon className="w-4 h-4" /> Pregúntanos por WhatsApp <ArrowIcon className="w-4 h-4" />

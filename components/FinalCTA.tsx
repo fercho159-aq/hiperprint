@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowIcon, WaIcon } from "./icons";
+import { buildWhatsAppUrl } from "./whatsapp";
 
 export function FinalCTA() {
   return (
@@ -20,15 +21,20 @@ export function FinalCTA() {
             </h2>
           </div>
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
-            <Link href="/contacto" className="btn btn-primary">
-              Cotiza tu pedido <ArrowIcon className="w-4 h-4" />
-            </Link>
             <a
-              href="https://wa.me/525550875427"
+              href={buildWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              <WaIcon className="w-4 h-4" /> Cotiza por WhatsApp <ArrowIcon className="w-4 h-4" />
+            </a>
+            <Link
+              href="/contacto"
               className="btn btn-secondary !border-paper !text-paper hover:!bg-paper hover:!text-ink"
             >
-              <WaIcon className="w-4 h-4" /> WhatsApp directo
-            </a>
+              Ver formulario completo
+            </Link>
           </div>
         </div>
       </div>

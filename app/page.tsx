@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SiteEffects } from "@/components/SiteEffects";
 import { HomeContactForm } from "@/components/home/HeroContactForm";
+import { buildWhatsAppUrl } from "@/components/whatsapp";
 import {
   BOLSA,
   BOLSA_BLAHO,
@@ -690,7 +691,12 @@ function ContactCTA() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5 space-y-3 reveal">
-            <a href="tel:5550875427" className="lift block bg-cream rounded-xl p-7 border border-ink/10">
+            <a
+              href={buildWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lift block bg-cream rounded-xl p-7 border border-ink/10"
+            >
               <div className="flex items-start justify-between">
                 <div className="w-12 h-12 rounded-full bg-leaf text-paper inline-flex items-center justify-center">
                   <PhoneIcon className="w-5 h-5" />
@@ -698,18 +704,20 @@ function ContactCTA() {
                 <span className="label-mono">CANAL 01</span>
               </div>
               <div className="mt-6 font-mono text-[11px] tracking-[.18em] uppercase text-ink/55">
-                Llámanos
+                WhatsApp directo
               </div>
               <div
                 className="mt-1 font-serif text-ink font-bold"
                 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", letterSpacing: "-0.02em" }}
               >
-                55 5087 5427
+                +52 56 1158 1587
               </div>
-              <div className="mt-2 text-ink/60 text-[14px]">L–V 9:00 a 18:00 h</div>
+              <div className="mt-2 text-ink/60 text-[14px]">Respuesta promedio: 12 min</div>
             </a>
             <a
-              href="mailto:ventas@hiperprint.mx"
+              href={buildWhatsAppUrl("Hola Hiperprint, me gustaría que me llamen.")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="lift block bg-cream rounded-xl p-7 border border-ink/10"
             >
               <div className="flex items-start justify-between">
@@ -719,15 +727,15 @@ function ContactCTA() {
                 <span className="label-mono">CANAL 02</span>
               </div>
               <div className="mt-6 font-mono text-[11px] tracking-[.18em] uppercase text-ink/55">
-                Escríbenos
+                Pedir que te llamemos
               </div>
               <div
                 className="mt-1 font-serif text-ink font-bold"
                 style={{ fontSize: "clamp(1.4rem, 2.6vw, 2rem)", letterSpacing: "-0.02em" }}
               >
-                ventas@hiperprint.mx
+                Agendar llamada
               </div>
-              <div className="mt-2 text-ink/60 text-[14px]">Respuesta &lt; 24 h</div>
+              <div className="mt-2 text-ink/60 text-[14px]">L–V 9:00 a 18:00 h</div>
             </a>
             <div className="lift block bg-cream rounded-xl p-7 border border-ink/10">
               <div className="flex items-start justify-between">
@@ -752,15 +760,15 @@ function ContactCTA() {
                 style={{ aspectRatio: "3/1" }}
               >
                 <svg viewBox="0 0 300 100" className="w-full h-full" preserveAspectRatio="none">
-                  <rect width="300" height="100" fill="#F5EFE0" />
-                  <g stroke="#A67F5D" strokeWidth=".8" fill="none">
+                  <rect width="300" height="100" fill="#F7F1E6" />
+                  <g stroke="#C25B2E" strokeWidth=".8" fill="none">
                     <path d="M-10 30 L320 50" />
                     <path d="M-10 70 L320 60" />
                     <path d="M40 -10 L80 110" />
                     <path d="M120 -10 L160 110" />
                     <path d="M220 -10 L260 110" />
                   </g>
-                  <g stroke="#A67F5D" strokeWidth=".3" fill="none" opacity=".5">
+                  <g stroke="#C25B2E" strokeWidth=".3" fill="none" opacity=".5">
                     <path d="M-10 20 L320 35" />
                     <path d="M-10 85 L320 78" />
                     <path d="M0 -10 L25 110" />
@@ -768,9 +776,9 @@ function ContactCTA() {
                     <path d="M275 -10 L300 110" />
                   </g>
                   <g transform="translate(150,52)">
-                    <circle r="12" fill="#3D5B3A" opacity=".18" />
-                    <circle r="6" fill="#3D5B3A" />
-                    <circle r="2" fill="#F5EFE0" />
+                    <circle r="12" fill="#1F2A55" opacity=".18" />
+                    <circle r="6" fill="#1F2A55" />
+                    <circle r="2" fill="#F7F1E6" />
                   </g>
                 </svg>
                 <span className="absolute bottom-2 right-2 font-mono text-[10px] tracking-[.16em] uppercase text-ink/50 bg-paper/70 px-2 py-0.5 rounded">
