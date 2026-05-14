@@ -1,0 +1,604 @@
+{
+  "extracted_at": "2026-05-14T21:26:17.107397+00:00",
+  "source": "https://hiperprint.mx/",
+  "pages_crawled": [
+    "/",
+    "/contacto/",
+    "/shop/",
+    "/producto/papel-grado-alimenticio/"
+  ],
+  "items": [
+    {
+      "local_path": "public/images/home/papelgrado-02.png",
+      "public_url": "/images/home/papelgrado-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/papelgrado-02.png",
+      "size_bytes": 8939500,
+      "width": 4167,
+      "height": 2842,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Main hero product shot of branded food-grade paper (cone), used as the page featured wrapper / OG image",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/logo/cropped-hiperprintlogo-01.png",
+      "public_url": "/images/logo/cropped-hiperprintlogo-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/cropped-hiperprintlogo-01.png",
+      "size_bytes": 4436,
+      "width": 512,
+      "height": 512,
+      "found_on_pages": [
+        "/",
+        "/contacto/",
+        "/producto/papel-grado-alimenticio/",
+        "/shop/"
+      ],
+      "context": "Site favicon / apple-touch-icon (512x512 square logo crop)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/logo/hiperprintlogo-01-2.png",
+      "public_url": "/images/logo/hiperprintlogo-01-2.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/hiperprintlogo-01-2.png",
+      "size_bytes": 32504,
+      "width": 2098,
+      "height": 576,
+      "found_on_pages": [
+        "/",
+        "/contacto/",
+        "/producto/papel-grado-alimenticio/",
+        "/shop/"
+      ],
+      "context": "Primary header logo, horizontal wordmark used in nav on every page",
+      "alt_text": "Hiperprint"
+    },
+    {
+      "local_path": "public/images/home/papelgradonavidad2-01.png",
+      "public_url": "/images/home/papelgradonavidad2-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/papelgradonavidad2-01.png",
+      "size_bytes": 1622722,
+      "width": 1929,
+      "height": 1322,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Christmas-themed food-grade paper variant, in home wide product carousel",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/papelgradocuadros-02.png",
+      "public_url": "/images/home/papelgradocuadros-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/papelgradocuadros-02.png",
+      "size_bytes": 1633264,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Checkered/squared pattern food-grade paper, in home wide product carousel",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/papelgradoblanco-02.png",
+      "public_url": "/images/home/papelgradoblanco-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/papelgradoblanco-02.png",
+      "size_bytes": 1441660,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Plain white food-grade paper product shot, in home wide product carousel",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/papelgrado-02-1.png",
+      "public_url": "/images/home/papelgrado-02-1.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/papelgrado-02-1.png",
+      "size_bytes": 1920110,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Food-grade paper product shot used in a featured single image block on home",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/papelgradodiamuertos2-02.png",
+      "public_url": "/images/home/papelgradodiamuertos2-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/papelgradodiamuertos2-02.png",
+      "size_bytes": 1511697,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Day-of-the-Dead themed food-grade paper, in home wide product carousel",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/caja-02.png",
+      "public_url": "/images/home/caja-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/caja-02.png",
+      "size_bytes": 1874011,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Custom printed box (caja) product shot, in home wide product carousel",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/flautas-02.png",
+      "public_url": "/images/home/flautas-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/flautas-02.png",
+      "size_bytes": 1373090,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Flautas / cone paper holders product shot, featured single image on home",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/portavaso-02.png",
+      "public_url": "/images/home/portavaso-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/portavaso-02.png",
+      "size_bytes": 1565138,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Cup sleeve (portavaso) product shot, in home wide product carousel",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/bolsa-02.png",
+      "public_url": "/images/home/bolsa-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/bolsa-02.png",
+      "size_bytes": 1484082,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Custom printed paper bag (bolsa) product shot, featured single image on home",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/bolsablaho-02.png",
+      "public_url": "/images/home/bolsablaho-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/bolsablaho-02.png",
+      "size_bytes": 1502625,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Custom printed Blaho-branded paper bag product shot, in home wide product carousel",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/logo/hiperprintlogo-01-1.png",
+      "public_url": "/images/logo/hiperprintlogo-01-1.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/hiperprintlogo-01-1.png",
+      "size_bytes": 39363,
+      "width": 2550,
+      "height": 1023,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Alternate horizontal logo, displayed as a featured single image in home content section",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/papelgradocono-02.png",
+      "public_url": "/images/home/papelgradocono-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/papelgradocono-02.png",
+      "size_bytes": 667401,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Food-grade paper cone product shot used in a featured single image block on home",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/icono-02.png",
+      "public_url": "/images/home/icono-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/icono-02.png",
+      "size_bytes": 9555,
+      "width": 473,
+      "height": 309,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Small section icon on home (feature/value-prop block)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/ventas-02.png",
+      "public_url": "/images/home/ventas-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/ventas-02.png",
+      "size_bytes": 12244,
+      "width": 335,
+      "height": 396,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Sales icon used in a home feature/value-prop block (about sales/customer service)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/mundo-02.png",
+      "public_url": "/images/home/mundo-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/mundo-02.png",
+      "size_bytes": 12737,
+      "width": 335,
+      "height": 443,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Globe icon used in a home feature/value-prop block (about international/reach messaging)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/icono-02-1.png",
+      "public_url": "/images/home/icono-02-1.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/icono-02-1.png",
+      "size_bytes": 9511,
+      "width": 391,
+      "height": 396,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Small section icon on home (feature/value-prop block, second variant)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/papelgradonavidad-01.png",
+      "public_url": "/images/home/papelgradonavidad-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/papelgradonavidad-01.png",
+      "size_bytes": 1540407,
+      "width": 1929,
+      "height": 1322,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Christmas-themed food-grade paper, featured single image on home",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/4-APLICACION.png",
+      "public_url": "/images/home/4-APLICACION.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/4-APLICACION.png",
+      "size_bytes": 1495682,
+      "width": 1083,
+      "height": 1209,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Application/use-case illustration (food in branded paper), featured single image on home",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/elbol-01.png",
+      "public_url": "/images/clientes/elbol-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/elbol-01.png",
+      "size_bytes": 42196,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'El Bol' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/lidanys-01.png",
+      "public_url": "/images/clientes/lidanys-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/lidanys-01.png",
+      "size_bytes": 17830,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Lidanys' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/blaho-01.png",
+      "public_url": "/images/clientes/blaho-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/blaho-01.png",
+      "size_bytes": 12537,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Blaho' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/chopy-01.png",
+      "public_url": "/images/clientes/chopy-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/chopy-01.png",
+      "size_bytes": 19294,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Chopy' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/choper-01.png",
+      "public_url": "/images/clientes/choper-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/choper-01.png",
+      "size_bytes": 40246,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Choper' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/flautas-01.png",
+      "public_url": "/images/clientes/flautas-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/flautas-01.png",
+      "size_bytes": 28262,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Flautas' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/pintoxs-01.png",
+      "public_url": "/images/clientes/pintoxs-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/pintoxs-01.png",
+      "size_bytes": 31710,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Pintoxs' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/dulzone-01.png",
+      "public_url": "/images/clientes/dulzone-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/dulzone-01.png",
+      "size_bytes": 13796,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Dulzone' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/losdemaria-01.png",
+      "public_url": "/images/clientes/losdemaria-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/losdemaria-01.png",
+      "size_bytes": 23080,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Los de Maria' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/tizonsito-01.png",
+      "public_url": "/images/clientes/tizonsito-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/tizonsito-01.png",
+      "size_bytes": 31251,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Tizoncito' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/magic-02.png",
+      "public_url": "/images/clientes/magic-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/magic-02.png",
+      "size_bytes": 183888,
+      "width": 705,
+      "height": 429,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Magic' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/priceshoes-02.png",
+      "public_url": "/images/clientes/priceshoes-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/priceshoes-02.png",
+      "size_bytes": 221515,
+      "width": 705,
+      "height": 429,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Price Shoes' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/taquearte-02.png",
+      "public_url": "/images/clientes/taquearte-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/taquearte-02.png",
+      "size_bytes": 85769,
+      "width": 705,
+      "height": 429,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Taquearte' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/hagendaz-02.png",
+      "public_url": "/images/clientes/hagendaz-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/hagendaz-02.png",
+      "size_bytes": 151572,
+      "width": 705,
+      "height": 429,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Häagen-Dazs' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/capricho-02.png",
+      "public_url": "/images/clientes/capricho-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/capricho-02.png",
+      "size_bytes": 193091,
+      "width": 705,
+      "height": 429,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Capricho' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/parcela-02.png",
+      "public_url": "/images/clientes/parcela-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/parcela-02.png",
+      "size_bytes": 278984,
+      "width": 705,
+      "height": 429,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'La Parcela' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/castellana-02.png",
+      "public_url": "/images/clientes/castellana-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/castellana-02.png",
+      "size_bytes": 94578,
+      "width": 705,
+      "height": 429,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'La Castellana' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/clientes/burguesia-01.png",
+      "public_url": "/images/clientes/burguesia-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2018/05/burguesia-01.png",
+      "size_bytes": 33669,
+      "width": 706,
+      "height": 433,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Client/brand logo for 'Burguesia' on the home page client-logo wall (tm-client-logo-tooltip)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/productos/papelnavidadredes-02.png",
+      "public_url": "/images/productos/papelnavidadredes-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/papelnavidadredes-02.png",
+      "size_bytes": 4143504,
+      "width": 3929,
+      "height": 3061,
+      "found_on_pages": [
+        "/producto/papel-grado-alimenticio/",
+        "/shop/"
+      ],
+      "context": "Product gallery image on /producto/papel-grado-alimenticio/ and /shop/ (the only shop product: papel grado alimenticio, Christmas variant)",
+      "alt_text": null
+    },
+    {
+      "local_path": "public/images/home/fondoslider-02.png",
+      "public_url": "/images/home/fondoslider-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/fondoslider-02.png",
+      "size_bytes": 2081503,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Hero slider background image (slide 1) at the top of the home page",
+      "alt_text": "Hero slide 1 (fondoslider-02)"
+    },
+    {
+      "local_path": "public/images/home/fondoslider4-02.png",
+      "public_url": "/images/home/fondoslider4-02.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/fondoslider4-02.png",
+      "size_bytes": 1216083,
+      "width": 1925,
+      "height": 1313,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Hero slider background image (slide 2) at the top of the home page",
+      "alt_text": "Hero slide 2 (fondoslider4-02)"
+    },
+    {
+      "local_path": "public/images/home/fondoslider8-01.png",
+      "public_url": "/images/home/fondoslider8-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/11/fondoslider8-01.png",
+      "size_bytes": 267523,
+      "width": 1929,
+      "height": 1322,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Hero slider background image (slide 3) at the top of the home page",
+      "alt_text": "Hero slide 3 (fondoslider8-01)"
+    },
+    {
+      "local_path": "public/images/logo/isologo-01.png",
+      "public_url": "/images/logo/isologo-01.png",
+      "original_url": "https://hiperprint.mx/wp-content/uploads/2020/10/isologo-01.png",
+      "size_bytes": 4749,
+      "width": 505,
+      "height": 506,
+      "found_on_pages": [
+        "/"
+      ],
+      "context": "Hiperprint isologo (icon-only mark), overlay element on hero slider",
+      "alt_text": "Hiperprint isologo (slider overlay)"
+    }
+  ],
+  "failures": [
+    {
+      "asset": "hiperprint.png",
+      "tried": [
+        "https://hiperprint.mx/wp-content/uploads/2018/09/hiperprint.png"
+      ],
+      "code": null
+    }
+  ],
+  "skipped_tiny": [],
+  "total_files": 44,
+  "total_bytes": 37908369,
+  "failures_note": "The single failure (hiperprint.png from 2018/09) is a 404 on the live site - the WP head referenced it but the upload was deleted. No content lost."
+}
