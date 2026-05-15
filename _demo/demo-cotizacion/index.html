@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Hiperprint · Demo cotización</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --paper: #fbf8f3;
+        --cream: #f7f1e6;
+        --navy: #1f2a55;
+        --navy-deep: #13193a;
+        --terracotta: #c25b2e;
+        --terracotta-deep: #9e4521;
+        --leaf: #25d366;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--paper);
+        font-family: "Inter", sans-serif;
+        color: var(--ink);
+      }
+
+      .serif {
+        font-family: "Playfair Display", serif;
+        letter-spacing: -0.02em;
+      }
+
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .label-mono {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(26, 26, 26, 0.55);
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* ---------- SCENE 1 · INTRO ---------- */
+      .intro {
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        padding: 120px;
+      }
+      .intro-logo {
+        width: 320px;
+        height: 320px;
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      .intro-wordmark {
+        font-family: "Playfair Display", serif;
+        font-weight: 800;
+        font-size: 140px;
+        letter-spacing: -0.04em;
+        color: var(--ink);
+        opacity: 0;
+      }
+      .intro-tag {
+        font-size: 38px;
+        color: rgba(26, 26, 26, 0.7);
+        opacity: 0;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-weight: 400;
+      }
+      .intro-tag em {
+        color: var(--terracotta);
+        font-style: italic;
+      }
+
+      /* ---------- SCENE 2 · CATALOGO ---------- */
+      .catalog {
+        background: var(--paper);
+        padding: 96px 80px;
+        display: flex;
+        flex-direction: column;
+      }
+      .browser-bar {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 32px;
+        padding: 14px 22px;
+        background: var(--cream);
+        border-radius: 14px;
+        opacity: 0;
+      }
+      .browser-bar .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: rgba(26, 26, 26, 0.15);
+      }
+      .browser-bar .url {
+        margin-left: 24px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: rgba(26, 26, 26, 0.55);
+      }
+      .browser-bar .url b {
+        color: var(--ink);
+      }
+      .catalog-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 800;
+        font-size: 90px;
+        line-height: 0.96;
+        letter-spacing: -0.035em;
+        margin-bottom: 12px;
+        opacity: 0;
+      }
+      .catalog-title em {
+        font-style: italic;
+        font-weight: 500;
+        color: var(--terracotta);
+      }
+      .catalog-chips {
+        display: flex;
+        gap: 14px;
+        margin: 22px 0 40px;
+        opacity: 0;
+      }
+      .chip {
+        padding: 14px 28px;
+        border-radius: 999px;
+        font-size: 24px;
+        font-weight: 500;
+        background: var(--paper);
+        border: 1.5px solid rgba(26, 26, 26, 0.15);
+      }
+      .chip.active {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .tile {
+        position: relative;
+        aspect-ratio: 1/1;
+        border-radius: 18px;
+        overflow: hidden;
+        background: var(--cream);
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      .tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .tile .sku {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        background: rgba(26, 26, 26, 0.88);
+        color: var(--paper);
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.08em;
+      }
+      .tile.target {
+        outline: 0 solid transparent;
+      }
+      .tile.target.highlight {
+        outline: 6px solid var(--terracotta);
+        outline-offset: 4px;
+      }
+
+      /* shared cursor */
+      .cursor {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        z-index: 50;
+        pointer-events: none;
+        opacity: 0;
+        transform: translate(0, 0);
+      }
+      .cursor svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.25));
+      }
+      .tap-ring {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 4px solid var(--terracotta);
+        z-index: 49;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* ---------- SCENE 3 · PDP CONFIG ---------- */
+      .pdp {
+        background: var(--paper);
+        padding: 100px 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+      .pdp-hero {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 40px;
+        align-items: flex-start;
+        opacity: 0;
+      }
+      .pdp-img {
+        aspect-ratio: 1/1;
+        border-radius: 22px;
+        overflow: hidden;
+        background: var(--cream);
+        position: relative;
+      }
+      .pdp-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .pdp-img .sku-pill {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: rgba(251, 248, 243, 0.94);
+        backdrop-filter: blur(4px);
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        letter-spacing: 0.1em;
+      }
+      .pdp-meta {
+        padding-top: 14px;
+      }
+      .pdp-cat {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(26, 26, 26, 0.55);
+      }
+      .pdp-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 72px;
+        line-height: 1;
+        letter-spacing: -0.025em;
+        margin: 14px 0 18px;
+      }
+      .pdp-blurb {
+        font-size: 26px;
+        color: rgba(26, 26, 26, 0.7);
+        line-height: 1.4;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .field-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .field-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(26, 26, 26, 0.5);
+      }
+      .field-value {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 28px;
+        color: var(--ink);
+        opacity: 0;
+      }
+      .options {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .opt {
+        padding: 16px 26px;
+        border-radius: 999px;
+        font-size: 22px;
+        background: var(--paper);
+        border: 1.5px solid rgba(26, 26, 26, 0.15);
+        color: rgba(26, 26, 26, 0.78);
+      }
+      .opt.selected {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+      .pdp-cta {
+        margin-top: 24px;
+        background: var(--leaf);
+        color: white;
+        padding: 32px;
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        box-shadow: 0 18px 40px rgba(37, 211, 102, 0.35);
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .pdp-cta svg {
+        width: 42px;
+        height: 42px;
+      }
+
+      /* ---------- SCENE 4 · WHATSAPP ---------- */
+      .wa-scene {
+        background: #0b141a;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .wa-header {
+        background: #1f2c34;
+        padding: 70px 50px 40px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: white;
+      }
+      .wa-avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: var(--terracotta);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-weight: 800;
+        font-size: 44px;
+        color: white;
+        overflow: hidden;
+      }
+      .wa-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .wa-name {
+        font-size: 36px;
+        font-weight: 600;
+      }
+      .wa-status {
+        font-size: 22px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 4px;
+      }
+      .wa-chat {
+        flex: 1;
+        background: #0b141a
+          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="1.5" fill="%23ffffff" opacity="0.04"/></svg>');
+        padding: 60px 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        justify-content: flex-end;
+      }
+      .bubble {
+        max-width: 78%;
+        align-self: flex-end;
+        background: #005c4b;
+        color: white;
+        padding: 26px 30px;
+        border-radius: 20px;
+        border-bottom-right-radius: 6px;
+        font-size: 26px;
+        line-height: 1.45;
+        opacity: 0;
+        transform: translateY(20px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      }
+      .bubble strong {
+        color: #ffd66b;
+        font-weight: 600;
+      }
+      .bubble ul {
+        margin: 14px 0 6px;
+        padding-left: 24px;
+      }
+      .bubble li {
+        margin-bottom: 6px;
+      }
+      .bubble .ts {
+        display: block;
+        margin-top: 14px;
+        text-align: right;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .wa-typing {
+        align-self: flex-start;
+        background: #1f2c34;
+        color: rgba(255, 255, 255, 0.85);
+        padding: 22px 28px;
+        border-radius: 20px;
+        border-bottom-left-radius: 6px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0;
+      }
+      .wa-typing .dot-anim {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      /* ---------- SCENE 5 · OUTRO ---------- */
+      .outro {
+        background: var(--ink);
+        color: var(--paper);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        padding: 120px;
+      }
+      .outro-kicker {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--terracotta);
+        opacity: 0;
+      }
+      .outro-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 800;
+        font-size: 130px;
+        line-height: 0.96;
+        letter-spacing: -0.035em;
+        text-align: center;
+        opacity: 0;
+      }
+      .outro-title em {
+        font-style: italic;
+        font-weight: 500;
+        color: var(--terracotta);
+      }
+      .outro-url {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 38px;
+        color: rgba(251, 248, 243, 0.7);
+        margin-top: 20px;
+        opacity: 0;
+      }
+      .outro-cta {
+        margin-top: 30px;
+        background: var(--leaf);
+        color: white;
+        padding: 28px 60px;
+        border-radius: 999px;
+        font-size: 32px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .outro-cta svg {
+        width: 38px;
+        height: 38px;
+      }
+
+      /* caption strip */
+      .caption {
+        position: absolute;
+        bottom: 64px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        z-index: 60;
+        pointer-events: none;
+      }
+      .caption-inner {
+        background: rgba(26, 26, 26, 0.78);
+        color: var(--paper);
+        padding: 18px 36px;
+        border-radius: 999px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="18"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- SCENE 1 · BRAND INTRO (0 - 2.5s) -->
+      <div
+        id="scene-intro"
+        class="scene intro clip"
+        data-composition-id="scene-intro"
+        data-start="0"
+        data-duration="2.5"
+        data-track-index="1"
+      >
+        <img class="intro-logo" src="assets/isologo.png" alt="Hiperprint isologo" />
+        <div class="intro-wordmark">Hiperprint</div>
+        <div class="intro-tag">
+          Tu catálogo, <em>en 30 segundos.</em>
+        </div>
+      </div>
+
+      <!-- SCENE 2 · CATALOGO (2.5 - 6.5s) -->
+      <div
+        id="scene-catalog"
+        class="scene catalog clip"
+        data-composition-id="scene-catalog"
+        data-start="2.5"
+        data-duration="4"
+        data-track-index="1"
+      >
+        <div class="browser-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">hiperprint.mx<b>/catalogo</b></span>
+        </div>
+        <div class="catalog-title">
+          100+ piezas,<br /><em>una sola obsesión.</em>
+        </div>
+        <div class="catalog-chips">
+          <span class="chip active">Todos · 20</span>
+          <span class="chip">Papel</span>
+          <span class="chip">Cajas</span>
+          <span class="chip">Bolsas</span>
+        </div>
+        <div class="grid">
+          <div class="tile" data-tile="0">
+            <img src="assets/papel-cuadros.png" alt="Papel cuadros" />
+            <span class="sku">P-040-CUA-01</span>
+          </div>
+          <div class="tile target" data-tile="1">
+            <img src="assets/caja.png" alt="Caja pizza" />
+            <span class="sku">C-PIZ-G-K-04</span>
+          </div>
+          <div class="tile" data-tile="2">
+            <img src="assets/bolsa.png" alt="Bolsa" />
+            <span class="sku">B-K-AC-M-12</span>
+          </div>
+          <div class="tile" data-tile="3">
+            <img src="assets/portavaso.png" alt="Portavasos" />
+            <span class="sku">P-PV-HEX-02</span>
+          </div>
+          <div class="tile" data-tile="4">
+            <img src="assets/flautas.png" alt="Caja hot dog" />
+            <span class="sku">C-HD-R-03</span>
+          </div>
+          <div class="tile" data-tile="5">
+            <img src="assets/papel-blanco.png" alt="Papel blanco" />
+            <span class="sku">P-040-CUA-V-09</span>
+          </div>
+        </div>
+        <div id="cursor-catalog" class="cursor">
+          <svg viewBox="0 0 32 32" fill="white" stroke="black" stroke-width="1.5">
+            <path d="M5 3 L5 23 L11 19 L14 26 L18 24 L15 17 L23 17 Z" />
+          </svg>
+        </div>
+        <div id="tap-ring-catalog" class="tap-ring"></div>
+      </div>
+
+      <!-- SCENE 3 · PDP CONFIGURADOR (6.5 - 12s) -->
+      <div
+        id="scene-pdp"
+        class="scene pdp clip"
+        data-composition-id="scene-pdp"
+        data-start="6.5"
+        data-duration="5.5"
+        data-track-index="1"
+      >
+        <div class="browser-bar" style="opacity: 1">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">hiperprint.mx<b>/producto/C-PIZ-G-K-04</b></span>
+        </div>
+
+        <div class="pdp-hero">
+          <div class="pdp-img">
+            <img src="assets/caja.png" alt="Caja pizza" />
+            <div class="sku-pill">SKU · C-PIZ-G-K-04</div>
+          </div>
+          <div class="pdp-meta">
+            <div class="pdp-cat">// LÍNEA · CAJAS</div>
+            <div class="pdp-title">Caja pizza<br />grande kraft</div>
+            <div class="pdp-blurb">
+              Caja kraft 14pt troquelada. Armado en 3 segundos.
+            </div>
+          </div>
+        </div>
+
+        <div class="field" id="field-1">
+          <div class="field-head">
+            <span class="field-label">Tamaño</span>
+            <span class="field-value" id="val-1">Grande</span>
+          </div>
+          <div class="options">
+            <span class="opt">Chica</span>
+            <span class="opt">Mediana</span>
+            <span class="opt" id="opt-size">Grande</span>
+            <span class="opt">Especial</span>
+          </div>
+        </div>
+
+        <div class="field" id="field-2">
+          <div class="field-head">
+            <span class="field-label">Tiraje</span>
+            <span class="field-value" id="val-2">2,500 piezas</span>
+          </div>
+          <div class="options">
+            <span class="opt">500</span>
+            <span class="opt">1,000</span>
+            <span class="opt" id="opt-qty">2,500</span>
+            <span class="opt">5,000</span>
+          </div>
+        </div>
+
+        <div class="field" id="field-3">
+          <div class="field-head">
+            <span class="field-label">Material</span>
+            <span class="field-value" id="val-3">Kraft 14pt</span>
+          </div>
+          <div class="options">
+            <span class="opt">Kraft 12pt</span>
+            <span class="opt" id="opt-mat">Kraft 14pt</span>
+            <span class="opt">Blanco 18pt</span>
+          </div>
+        </div>
+
+        <div class="field" id="field-4">
+          <div class="field-head">
+            <span class="field-label">Impresión</span>
+            <span class="field-value" id="val-4">4 colores</span>
+          </div>
+          <div class="options">
+            <span class="opt">Sin imprimir</span>
+            <span class="opt">1 tinta</span>
+            <span class="opt" id="opt-ink">4 colores</span>
+            <span class="opt">4 + foil</span>
+          </div>
+        </div>
+
+        <div class="pdp-cta" id="wa-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.51 3.85 1.49 5.53L2 22l4.7-1.23a9.9 9.9 0 0 0 5.34 1.54c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.7 2 12.04 2zm5.81 14.05c-.25.7-1.42 1.32-2 1.4-.5.07-1.14.1-1.84-.12-.42-.13-.96-.31-1.66-.61-2.93-1.27-4.84-4.22-4.99-4.41-.15-.2-1.21-1.61-1.21-3.07s.76-2.18 1.03-2.48c.27-.3.59-.37.78-.37l.56.01c.18.01.42-.07.66.5.25.59.85 2.05.92 2.19.07.15.12.32.02.51-.1.2-.15.32-.3.49-.15.17-.31.39-.45.52-.15.15-.3.31-.13.61.18.3.8 1.31 1.71 2.13 1.18 1.05 2.17 1.38 2.47 1.53.3.15.48.13.66-.08.18-.2.76-.88.96-1.19.2-.3.39-.25.66-.15.27.1 1.73.81 2.03.96.3.15.5.22.57.34.07.13.07.74-.18 1.44z"
+            />
+          </svg>
+          Cotizar por WhatsApp
+        </div>
+
+        <div id="cursor-pdp" class="cursor"></div>
+        <div id="tap-ring-pdp" class="tap-ring"></div>
+      </div>
+
+      <!-- SCENE 4 · WHATSAPP CHAT (12 - 15.5s) -->
+      <div
+        id="scene-wa"
+        class="scene wa-scene clip"
+        data-composition-id="scene-wa"
+        data-start="12"
+        data-duration="3.5"
+        data-track-index="1"
+      >
+        <div class="wa-header">
+          <div class="wa-avatar">
+            <img src="assets/isologo.png" alt="Hiperprint" />
+          </div>
+          <div>
+            <div class="wa-name">Hiperprint</div>
+            <div class="wa-status">en línea</div>
+          </div>
+        </div>
+        <div class="wa-chat">
+          <div class="wa-typing" id="wa-typing">
+            escribiendo
+            <span class="dot-anim"></span><span class="dot-anim"></span
+            ><span class="dot-anim"></span>
+          </div>
+          <div class="bubble" id="bubble-1">
+            <strong>Hola Hiperprint, quiero cotizar:</strong>
+            <ul>
+              <li>Producto: Caja pizza grande kraft</li>
+              <li>SKU: C-PIZ-G-K-04</li>
+            </ul>
+            <span class="ts">10:42 ✓✓</span>
+          </div>
+          <div class="bubble" id="bubble-2">
+            <strong>Configuración:</strong>
+            <ul>
+              <li>Tamaño: Grande</li>
+              <li>Tiraje: 2,500 piezas</li>
+              <li>Material: Kraft 14pt</li>
+              <li>Impresión: 4 colores</li>
+            </ul>
+            ¿Me pasan precio y tiempos?
+            <span class="ts">10:42 ✓✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 5 · OUTRO (15.5 - 18s) -->
+      <div
+        id="scene-outro"
+        class="scene outro clip"
+        data-composition-id="scene-outro"
+        data-start="15.5"
+        data-duration="2.5"
+        data-track-index="1"
+      >
+        <div class="outro-kicker">// COTIZA EN 3 TOQUES</div>
+        <div class="outro-title">
+          Hecho a tu marca,<br /><em>cotizado al instante.</em>
+        </div>
+        <div class="outro-url">hiperprint.mx/catalogo</div>
+        <div class="outro-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.51 3.85 1.49 5.53L2 22l4.7-1.23a9.9 9.9 0 0 0 5.34 1.54c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.7 2 12.04 2zm5.81 14.05c-.25.7-1.42 1.32-2 1.4-.5.07-1.14.1-1.84-.12-.42-.13-.96-.31-1.66-.61-2.93-1.27-4.84-4.22-4.99-4.41-.15-.2-1.21-1.61-1.21-3.07s.76-2.18 1.03-2.48c.27-.3.59-.37.78-.37l.56.01c.18.01.42-.07.66.5.25.59.85 2.05.92 2.19.07.15.12.32.02.51-.1.2-.15.32-.3.49-.15.17-.31.39-.45.52-.15.15-.3.31-.13.61.18.3.8 1.31 1.71 2.13 1.18 1.05 2.17 1.38 2.47 1.53.3.15.48.13.66-.08.18-.2.76-.88.96-1.19.2-.3.39-.25.66-.15.27.1 1.73.81 2.03.96.3.15.5.22.57.34.07.13.07.74-.18 1.44z"
+            />
+          </svg>
+          WhatsApp 56 1158 1587
+        </div>
+      </div>
+
+      <!-- CAPTION TRACK -->
+      <div
+        id="captions-comp"
+        class="clip"
+        data-composition-id="captions"
+        data-start="0"
+        data-duration="18"
+        data-track-index="2"
+        data-layout-allow-overflow
+      >
+        <div class="caption">
+          <div class="caption-inner" id="cap-line">Tu catálogo, en 30 segundos</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      /* ===== SCENE 1 · INTRO ===== */
+      const tlIntro = gsap.timeline({ paused: true });
+      tlIntro
+        .to(".intro-logo", { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 0.1)
+        .to(".intro-wordmark", { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.6)
+        .to(".intro-tag", { opacity: 1, duration: 0.5, ease: "power2.out" }, 1)
+        .to([".intro-logo", ".intro-wordmark", ".intro-tag"], {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.in",
+        }, 2.1);
+      window.__timelines["scene-intro"] = tlIntro;
+
+      /* ===== SCENE 2 · CATALOG ===== */
+      const tlCat = gsap.timeline({ paused: true });
+      tlCat
+        .to("#scene-catalog .browser-bar", { opacity: 1, duration: 0.3 }, 0)
+        .to(".catalog-title", { opacity: 1, y: 0, duration: 0.4 }, 0.15)
+        .to(".catalog-chips", { opacity: 1, duration: 0.3 }, 0.4)
+        .to("#scene-catalog .tile", {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          stagger: 0.06,
+          ease: "power2.out",
+        }, 0.5)
+        /* cursor enters bottom-right, moves to caja pizza tile */
+        .set("#cursor-catalog", { left: 880, top: 1500, opacity: 0 })
+        .to("#cursor-catalog", { opacity: 1, duration: 0.2 }, 1.4)
+        .to("#cursor-catalog", { left: 540, top: 850, duration: 1, ease: "power2.inOut" }, 1.6)
+        .set("#tap-ring-catalog", { left: 510, top: 820, opacity: 1, scale: 0.4 }, 2.7)
+        .to("#tap-ring-catalog", { scale: 1.3, opacity: 0, duration: 0.6, ease: "power2.out" }, 2.7)
+        .to(".tile.target", { duration: 0.1 }, 2.7)
+        .add(() => {
+          const t = document.querySelector(".tile.target");
+          if (t) t.classList.add("highlight");
+        }, 2.75)
+        .to(".tile.target", { scale: 1.04, duration: 0.2, ease: "power2.out" }, 2.8)
+        .to("#cursor-catalog", { opacity: 0, duration: 0.3 }, 3.4);
+      window.__timelines["scene-catalog"] = tlCat;
+
+      /* ===== SCENE 3 · PDP ===== */
+      const tlPdp = gsap.timeline({ paused: true });
+      tlPdp
+        .to(".pdp-hero", { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.1)
+        .to("#field-1", { opacity: 1, y: 0, duration: 0.3 }, 0.5)
+        .to("#field-2", { opacity: 1, y: 0, duration: 0.3 }, 0.7)
+        .to("#field-3", { opacity: 1, y: 0, duration: 0.3 }, 0.9)
+        .to("#field-4", { opacity: 1, y: 0, duration: 0.3 }, 1.1)
+        /* highlight each selected option in sequence + reveal value */
+        .to("#opt-size", {
+          backgroundColor: "#1a1a1a",
+          color: "#fbf8f3",
+          borderColor: "#1a1a1a",
+          duration: 0.3,
+        }, 1.5)
+        .to("#val-1", { opacity: 1, duration: 0.2 }, 1.55)
+        .to("#opt-qty", {
+          backgroundColor: "#1a1a1a",
+          color: "#fbf8f3",
+          borderColor: "#1a1a1a",
+          duration: 0.3,
+        }, 2.0)
+        .to("#val-2", { opacity: 1, duration: 0.2 }, 2.05)
+        .to("#opt-mat", {
+          backgroundColor: "#1a1a1a",
+          color: "#fbf8f3",
+          borderColor: "#1a1a1a",
+          duration: 0.3,
+        }, 2.5)
+        .to("#val-3", { opacity: 1, duration: 0.2 }, 2.55)
+        .to("#opt-ink", {
+          backgroundColor: "#1a1a1a",
+          color: "#fbf8f3",
+          borderColor: "#1a1a1a",
+          duration: 0.3,
+        }, 3.0)
+        .to("#val-4", { opacity: 1, duration: 0.2 }, 3.05)
+        /* reveal CTA */
+        .to("#wa-cta", { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.4)" }, 3.7)
+        .to("#wa-cta", { scale: 1.04, duration: 0.4, yoyo: true, repeat: 1, ease: "power2.inOut" }, 4.4)
+        /* tap ring on cta */
+        .set("#tap-ring-pdp", { left: 490, top: 1640, opacity: 1, scale: 0.4 }, 4.9)
+        .to("#tap-ring-pdp", { scale: 1.4, opacity: 0, duration: 0.5, ease: "power2.out" }, 4.9);
+      window.__timelines["scene-pdp"] = tlPdp;
+
+      /* ===== SCENE 4 · WHATSAPP ===== */
+      const tlWa = gsap.timeline({ paused: true });
+      tlWa
+        .from("#scene-wa .wa-header", { y: -80, opacity: 0, duration: 0.4, ease: "power2.out" }, 0)
+        .to("#wa-typing", { opacity: 1, duration: 0.3 }, 0.4)
+        .to("#wa-typing .dot-anim", {
+          y: -6,
+          duration: 0.3,
+          ease: "sine.inOut",
+          stagger: 0.1,
+          yoyo: true,
+          repeat: 2,
+        }, 0.5)
+        .to("#wa-typing", { opacity: 0, duration: 0.2 }, 1.4)
+        .to("#bubble-1", { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, 1.4)
+        .to("#bubble-2", { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, 2.1);
+      window.__timelines["scene-wa"] = tlWa;
+
+      /* ===== SCENE 5 · OUTRO ===== */
+      const tlOut = gsap.timeline({ paused: true });
+      tlOut
+        .to(".outro-kicker", { opacity: 1, duration: 0.3 }, 0.1)
+        .to(".outro-title", { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.3)
+        .to(".outro-url", { opacity: 1, duration: 0.3 }, 0.9)
+        .to(".outro-cta", { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, 1.2);
+      window.__timelines["scene-outro"] = tlOut;
+
+      /* ===== CAPTIONS ===== */
+      const capTl = gsap.timeline({ paused: true });
+      const cap = document.querySelector("#cap-line");
+      const lines = [
+        { t: 0.2, text: "Tu catálogo, en 30 segundos" },
+        { t: 2.7, text: "Elige tu producto" },
+        { t: 6.7, text: "Configura medida, tiraje y acabado" },
+        { t: 12.1, text: "Cotiza directo por WhatsApp" },
+        { t: 15.7, text: "hiperprint.mx" },
+      ];
+      gsap.set(cap, { opacity: 0, y: 20 });
+      lines.forEach((l, i) => {
+        capTl.set(cap, { innerText: l.text }, l.t);
+        capTl.to(cap, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, l.t);
+        const next = lines[i + 1];
+        const out = next ? next.t - 0.3 : 17.5;
+        capTl.to(cap, { opacity: 0, y: -16, duration: 0.3, ease: "power2.in" }, out);
+      });
+      window.__timelines["captions"] = capTl;
+
+      /* ===== MAIN TIMELINE — passthrough, scenes drive themselves ===== */
+      const mainTl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = mainTl;
+    </script>
+  </body>
+</html>

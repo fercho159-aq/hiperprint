@@ -5,71 +5,24 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowIcon, ArrowDownIcon, ArrowLeftIcon, WaIcon, XIcon } from "../icons";
 import { buildWhatsAppUrl } from "../whatsapp";
-import {
-  BOLSA,
-  BOLSA_BLAHO,
-  CAJA,
-  FLAUTAS,
-  PAPEL_BLANCO,
-  PAPEL_CUADROS,
-  PAPEL_GENERICO,
-  PAPEL_HERO,
-  PAPEL_MUERTOS,
-  PAPEL_NAVIDAD,
-  PAPEL_NAVIDAD_2,
-  PORTAVASO,
-  PRODUCTO_NAVIDAD_REDES,
-  type SiteImage,
-} from "../site-images";
-
-interface CatalogItem {
-  id: number;
-  name: string;
-  cat: string;
-  image: SiteImage;
-  rows: number;
-  sku: string;
-}
+import { CATEGORY_LABEL, PRODUCTS, type Product, type ProductCategory } from "@/lib/products";
 
 interface CatalogFilter {
-  id: string;
+  id: ProductCategory | "todos";
   label: string;
   count: number;
 }
 
-const ITEMS: CatalogItem[] = [
-  { id: 1, name: "Papel hamburguesa cuadros", cat: "papel", image: PAPEL_CUADROS, rows: 1, sku: "P-040-CUA-01" },
-  { id: 2, name: "Caja pizza grande kraft", cat: "cajas", image: CAJA, rows: 2, sku: "C-PIZ-G-K-04" },
-  { id: 3, name: "Bolsa kraft asa cordón M", cat: "bolsas", image: BOLSA, rows: 1, sku: "B-K-AC-M-12" },
-  { id: 4, name: "Papel crepa impreso bicolor", cat: "papel", image: PAPEL_GENERICO, rows: 2, sku: "P-028-IMP-07" },
-  { id: 5, name: "Portavasos kraft hex", cat: "papel", image: PORTAVASO, rows: 1, sku: "P-PV-HEX-02" },
-  { id: 6, name: "Caja hot dog rojo", cat: "cajas", image: FLAUTAS, rows: 1, sku: "C-HD-R-03" },
-  { id: 7, name: "Bolsa pan kraft chica", cat: "bolsas", image: BOLSA_BLAHO, rows: 2, sku: "B-K-CHI-PAN-01" },
-  { id: 8, name: "Papel tacos cuadrille verde", cat: "papel", image: PAPEL_BLANCO, rows: 1, sku: "P-040-CUA-V-09" },
-  { id: 9, name: "Edición Día de Muertos 2025", cat: "temporada", image: PAPEL_MUERTOS, rows: 2, sku: "T-DM-2025-A" },
-  { id: 10, name: "Línea helados pastel", cat: "temporada", image: PRODUCTO_NAVIDAD_REDES, rows: 1, sku: "T-HEL-P-2026" },
-  { id: 11, name: "Caja burger M kraft", cat: "cajas", image: CAJA, rows: 1, sku: "C-BU-M-K-01" },
-  { id: 12, name: "Bolsa blanca premium L", cat: "bolsas", image: BOLSA, rows: 2, sku: "B-BL-PR-L-08" },
-  { id: 13, name: "Papel periódico monocromo", cat: "papel", image: PAPEL_HERO, rows: 1, sku: "P-040-PER-MO-11" },
-  { id: 14, name: "Edición Navidad 2025", cat: "temporada", image: PAPEL_NAVIDAD, rows: 1, sku: "T-NV-2025-B" },
-  { id: 15, name: "Caja postre ventana", cat: "cajas", image: FLAUTAS, rows: 1, sku: "C-PS-VEN-05" },
-  { id: 16, name: "Bolsa entrega delivery", cat: "bolsas", image: BOLSA_BLAHO, rows: 2, sku: "B-K-DEL-XL-14" },
-  { id: 17, name: "Papel hamburguesa periódico", cat: "papel", image: PAPEL_GENERICO, rows: 1, sku: "P-040-PER-22" },
-  { id: 18, name: "Línea patrias 16 septiembre", cat: "temporada", image: PAPEL_NAVIDAD_2, rows: 1, sku: "T-PA-2026-A" },
-  { id: 19, name: "Caja pizza chica blanca", cat: "cajas", image: CAJA, rows: 1, sku: "C-PIZ-C-BL-02" },
-  { id: 20, name: "Bolsa baguette larga", cat: "bolsas", image: BOLSA, rows: 1, sku: "B-K-BAG-L-06" },
-];
-
 const FILTERS: CatalogFilter[] = [
-  { id: "todos", label: "Todos", count: 20 },
-  { id: "papel", label: "Papel", count: 6 },
-  { id: "cajas", label: "Cajas", count: 5 },
-  { id: "bolsas", label: "Bolsas", count: 5 },
-  { id: "temporada", label: "Línea temporada", count: 4 },
+  { id: "todos", label: "Todos", count: PRODUCTS.length },
+  { id: "papel", label: "Papel", count: PRODUCTS.filter((p) => p.cat === "papel").length },
+  { id: "cajas", label: "Cajas", count: PRODUCTS.filter((p) => p.cat === "cajas").length },
+  { id: "bolsas", label: "Bolsas", count: PRODUCTS.filter((p) => p.cat === "bolsas").length },
+  { id: "temporada", label: "Línea temporada", count: PRODUCTS.filter((p) => p.cat === "temporada").length },
 ];
 
 interface LightboxProps {
-  item: CatalogItem | null;
+  item: Product | null;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
@@ -140,6 +93,9 @@ function Lightbox({ item, onClose, onPrev, onNext }: LightboxProps) {
           >
             {item.name}
           </h3>
+          <p className="mt-3 text-paper/70 text-[14.5px]" style={{ lineHeight: 1.55 }}>
+            {item.blurb}
+          </p>
           <div className="mt-5 grid grid-cols-2 gap-x-6 text-[14px]">
             <div>
               <div className="font-mono text-[10.5px] tracking-[.18em] uppercase text-paper/45 mb-1">
@@ -152,27 +108,27 @@ function Lightbox({ item, onClose, onPrev, onNext }: LightboxProps) {
                 Categoría
               </div>
               <div className="font-serif text-paper font-semibold">
-                {FILTERS.find((f) => f.id === item.cat)?.label}
+                {CATEGORY_LABEL[item.cat]}
               </div>
             </div>
           </div>
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
+            <Link
+              href={`/producto/${item.sku}`}
+              className="btn btn-primary"
+            >
+              Configurar y cotizar <ArrowIcon className="w-4 h-4" />
+            </Link>
             <a
               href={buildWhatsAppUrl(
                 `Hola Hiperprint, me interesa cotizar el SKU ${item.sku} — ${item.name}.`,
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              <WaIcon className="w-4 h-4" /> Cotizar por WhatsApp <ArrowIcon className="w-4 h-4" />
-            </a>
-            <Link
-              href="/contacto"
               className="btn btn-secondary !border-paper !text-paper hover:!bg-paper hover:!text-ink"
             >
-              Ver formulario
-            </Link>
+              <WaIcon className="w-4 h-4" /> WhatsApp directo
+            </a>
           </div>
         </div>
       </div>
@@ -183,12 +139,12 @@ function Lightbox({ item, onClose, onPrev, onNext }: LightboxProps) {
 type ViewMode = "masonry" | "grid";
 
 export function CatalogGrid() {
-  const [filter, setFilter] = useState("todos");
+  const [filter, setFilter] = useState<ProductCategory | "todos">("todos");
   const [view, setView] = useState<ViewMode>("masonry");
-  const [lb, setLb] = useState<CatalogItem | null>(null);
+  const [lb, setLb] = useState<Product | null>(null);
 
   const filtered = useMemo(
-    () => (filter === "todos" ? ITEMS : ITEMS.filter((i) => i.cat === filter)),
+    () => (filter === "todos" ? PRODUCTS : PRODUCTS.filter((i) => i.cat === filter)),
     [filter],
   );
 
