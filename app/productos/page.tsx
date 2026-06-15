@@ -326,7 +326,7 @@ function Lines() {
 
 function Process() {
   return (
-    <section className="bg-ink text-paper">
+    <section className="bg-ink text-paper pattern-rombo-light">
       <div className="mx-auto max-w-site px-6 lg:px-10 py-24 lg:py-32">
         <div className="mb-14 reveal">
           <div className="label-mono mb-4 text-paper/55">{"// CÓMO TRABAJAMOS"}</div>
@@ -377,6 +377,7 @@ export default function ProductosPage() {
       <main>
         <PageHero
           kicker="LÍNEAS · 04"
+          accent="carmin"
           title="Cuatro líneas,"
           italic="una sola obsesión."
           breadcrumb="Productos"

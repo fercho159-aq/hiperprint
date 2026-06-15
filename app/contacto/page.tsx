@@ -168,14 +168,14 @@ function VisitMap() {
               style={{ aspectRatio: "4/3" }}
             >
               <svg viewBox="0 0 400 300" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                <rect width="400" height="300" fill="#F7F1E6" />
-                <g stroke="#C25B2E" strokeWidth="2.5" fill="none" strokeLinecap="round">
+                <rect width="400" height="300" fill="#F4EFE3" />
+                <g stroke="#C8102E" strokeWidth="2.5" fill="none" strokeLinecap="round">
                   <path d="M-10 110 Q200 90 410 130" />
                   <path d="M-10 220 L410 200" />
                   <path d="M90 -10 L130 310" />
                   <path d="M250 -10 L280 310" />
                 </g>
-                <g stroke="#C25B2E" strokeWidth="1" fill="none" opacity=".7">
+                <g stroke="#C8102E" strokeWidth="1" fill="none" opacity=".7">
                   <path d="M-10 60 L410 75" />
                   <path d="M-10 170 L410 160" />
                   <path d="M-10 270 L410 265" />
@@ -183,7 +183,7 @@ function VisitMap() {
                   <path d="M170 -10 L195 310" />
                   <path d="M330 -10 L355 310" />
                 </g>
-                <g stroke="#C25B2E" strokeWidth=".4" fill="none" opacity=".5">
+                <g stroke="#C8102E" strokeWidth=".4" fill="none" opacity=".5">
                   {Array.from({ length: 24 }).map((_, i) => (
                     <line key={`h${i}`} x1="-10" y1={i * 13} x2="410" y2={i * 13 + 3} />
                   ))}
@@ -191,7 +191,7 @@ function VisitMap() {
                     <line key={`v${i}`} y1="-10" x1={i * 14} y2="310" x2={i * 14 + 4} />
                   ))}
                 </g>
-                <g fill="#C25B2E" opacity=".4">
+                <g fill="#C8102E" opacity=".4">
                   <rect x="45" y="80" width="40" height="25" rx="2" />
                   <rect x="135" y="80" width="40" height="25" rx="2" />
                   <rect x="200" y="80" width="45" height="25" rx="2" />
@@ -200,7 +200,7 @@ function VisitMap() {
                   <rect x="135" y="180" width="55" height="20" rx="2" />
                   <rect x="285" y="230" width="60" height="25" rx="2" />
                 </g>
-                <g fill="#1F2A55" opacity=".5">
+                <g fill="#1B2A4A" opacity=".5">
                   <ellipse cx="335" cy="140" rx="35" ry="25" />
                 </g>
                 <text
@@ -208,24 +208,24 @@ function VisitMap() {
                   y="143"
                   textAnchor="middle"
                   className="font-mono"
-                  fill="#1A1A1A"
+                  fill="#17213B"
                   opacity=".55"
                   style={{ fontSize: 7, letterSpacing: ".1em" }}
                 >
                   PARQUE
                 </text>
                 <g transform="translate(200,150)">
-                  <circle r="32" fill="#1F2A55" opacity=".12" />
-                  <circle r="20" fill="#1F2A55" opacity=".22" />
-                  <circle r="10" fill="#1F2A55" />
-                  <circle r="3.5" fill="#F7F1E6" />
-                  <rect x="-44" y="-58" width="88" height="22" rx="3" fill="#1A1A1A" />
+                  <circle r="32" fill="#1B2A4A" opacity=".12" />
+                  <circle r="20" fill="#1B2A4A" opacity=".22" />
+                  <circle r="10" fill="#1B2A4A" />
+                  <circle r="3.5" fill="#F4EFE3" />
+                  <rect x="-44" y="-58" width="88" height="22" rx="3" fill="#17213B" />
                   <text
                     x="0"
                     y="-43"
                     textAnchor="middle"
                     className="font-mono"
-                    fill="#F7F1E6"
+                    fill="#F4EFE3"
                     style={{ fontSize: 8.5, letterSpacing: ".08em" }}
                   >
                     HIPERPRINT · 91
@@ -235,7 +235,7 @@ function VisitMap() {
                   x="20"
                   y="225"
                   className="font-mono"
-                  fill="#1A1A1A"
+                  fill="#17213B"
                   opacity=".55"
                   style={{ fontSize: 7, letterSpacing: ".12em" }}
                 >
@@ -245,7 +245,7 @@ function VisitMap() {
                   x="100"
                   y="290"
                   className="font-mono"
-                  fill="#1A1A1A"
+                  fill="#17213B"
                   opacity=".55"
                   style={{ fontSize: 7, letterSpacing: ".12em" }}
                 >
@@ -345,6 +345,7 @@ export default function ContactoPage() {
       <main>
         <PageHero
           kicker="HABLEMOS · RESPUESTA < 24H"
+          accent="carmin"
           title="Cuéntanos qué"
           italic="necesitas imprimir."
           breadcrumb="Contacto"

@@ -154,7 +154,7 @@ function Intro() {
 
 function Timeline() {
   return (
-    <section className="bg-cream relative">
+    <section className="panel-amarillo-soft relative">
       <div className="mx-auto max-w-site px-6 lg:px-10 py-24 lg:py-32">
         <div className="mb-16 reveal max-w-3xl">
           <div className="label-mono mb-4">{"// LÍNEA DE TIEMPO"}</div>
@@ -355,7 +355,7 @@ function Planta() {
 
 function EcoSection() {
   return (
-    <section id="eco" className="bg-leaf text-paper">
+    <section id="eco" className="bg-leaf text-paper pattern-rombo-light">
       <div className="mx-auto max-w-site px-6 lg:px-10 py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 reveal">
@@ -471,6 +471,7 @@ export default function NosotrosPage() {
       <main>
         <PageHero
           kicker="DESDE 2009 · IZTAPALAPA"
+          accent="amarillo"
           title="Una imprenta"
           italic="mexicana, completa."
           breadcrumb="Nosotros"

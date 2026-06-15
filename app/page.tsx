@@ -121,10 +121,43 @@ const GALLERY: GalleryItem[] = [
 
 function Hero() {
   return (
-    <section id="inicio" className="grain relative bg-kraft">
-      <div className="mx-auto max-w-site px-6 lg:px-10 pt-14 lg:pt-20 pb-20 lg:pb-28 min-h-[88vh] flex flex-col justify-center">
+    <section id="inicio" className="grain marble relative overflow-hidden bg-kraft">
+      {/* Corporate motifs — the catalogue's sweeping curves, rombo texture and
+          orange corner wedge, framing the product cluster like the cover. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={{ zIndex: 0 }}>
+        <div
+          className="swoosh swoosh-ring hidden lg:block absolute"
+          style={{ width: 760, height: 760, right: -120, top: -140 }}
+        />
+        <div
+          className="swoosh swoosh-carmin hidden lg:block absolute"
+          style={{ width: 620, height: 620, right: -300, top: -220, opacity: 0.1 }}
+        />
+        <div
+          className="swoosh swoosh-cyan absolute"
+          style={{ width: 520, height: 520, left: -220, bottom: -240, opacity: 0.16 }}
+        />
+        <div
+          className="swoosh swoosh-amarillo hidden lg:block absolute"
+          style={{ width: 300, height: 300, left: 60, bottom: -200, opacity: 0.18 }}
+        />
+        <div
+          className="pattern-rombo hidden lg:block absolute"
+          style={{
+            width: 200,
+            top: 0,
+            bottom: 0,
+            right: 0,
+            opacity: 0.55,
+            WebkitMaskImage: "linear-gradient(270deg,#000,transparent)",
+            maskImage: "linear-gradient(270deg,#000,transparent)",
+          }}
+        />
+        <span className="corner-wedge" style={{ left: 0, bottom: 0 }} />
+      </div>
+      <div className="mx-auto max-w-site px-6 lg:px-10 pt-14 lg:pt-20 pb-20 lg:pb-28 min-h-[88vh] flex flex-col justify-center relative" style={{ zIndex: 1 }}>
         <div className="flex items-center gap-4 mb-10 lg:mb-14">
-          <span className="label-mono">ECO · HECHO EN MÉXICO · DESDE 2009</span>
+          <span className="pill-eco">Box for fast food · Hecho en México · 2009</span>
           <span className="h-px flex-1 max-w-[180px] bg-ink/20" />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
@@ -251,7 +284,7 @@ function Stats() {
     { num: "2,000+", label: "Clientes que confían", sub: "De Tijuana a Mérida" },
   ];
   return (
-    <section className="bg-cream border-y border-ink/10">
+    <section className="panel-amarillo border-y-2 border-ink/15">
       <div className="mx-auto max-w-site px-6 lg:px-10 py-20 lg:py-28">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
           {items.map((it, i) => (
@@ -368,11 +401,11 @@ function Eco() {
     { Icon: PinIcon, title: "Producción local en CDMX", body: "Planta propia en Iztapalapa, cadena de suministro corta." },
   ];
   return (
-    <section className="relative grain bg-cream border-y border-ink/10">
+    <section className="relative panel-cyan border-y-2 border-ink/15">
       <div className="mx-auto max-w-site px-6 lg:px-10 py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 reveal">
-            <span className="pill-eco mb-8">
+            <span className="pill-eco mb-8" style={{ background: "#17213b" }}>
               <LeafIcon className="w-3.5 h-3.5" /> Compromiso eco
             </span>
             <h2
@@ -637,10 +670,11 @@ function Promo() {
   return (
     <section className="bg-tortilla text-paper relative overflow-hidden">
       <div
-        className="absolute inset-0 opacity-[.08] pointer-events-none"
+        className="absolute inset-0 opacity-[.12] pointer-events-none"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M0 20h40M20 0v40' stroke='%23fff' stroke-width='.5'/></svg>\")",
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'><g fill='%23ffffff'><path d='M17 3 L31 17 L17 31 L3 17 Z'/></g><g stroke='%23c8102e' stroke-width='2.4' fill='none'><path d='M17 2 L17 32 M2 17 L32 17'/></g></svg>\")",
+          backgroundSize: "34px 34px",
         }}
       />
       <div className="mx-auto max-w-site px-6 lg:px-10 py-12 lg:py-16 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 relative">
@@ -760,15 +794,15 @@ function ContactCTA() {
                 style={{ aspectRatio: "3/1" }}
               >
                 <svg viewBox="0 0 300 100" className="w-full h-full" preserveAspectRatio="none">
-                  <rect width="300" height="100" fill="#F7F1E6" />
-                  <g stroke="#C25B2E" strokeWidth=".8" fill="none">
+                  <rect width="300" height="100" fill="#F4EFE3" />
+                  <g stroke="#C8102E" strokeWidth=".8" fill="none">
                     <path d="M-10 30 L320 50" />
                     <path d="M-10 70 L320 60" />
                     <path d="M40 -10 L80 110" />
                     <path d="M120 -10 L160 110" />
                     <path d="M220 -10 L260 110" />
                   </g>
-                  <g stroke="#C25B2E" strokeWidth=".3" fill="none" opacity=".5">
+                  <g stroke="#C8102E" strokeWidth=".3" fill="none" opacity=".5">
                     <path d="M-10 20 L320 35" />
                     <path d="M-10 85 L320 78" />
                     <path d="M0 -10 L25 110" />
@@ -776,9 +810,9 @@ function ContactCTA() {
                     <path d="M275 -10 L300 110" />
                   </g>
                   <g transform="translate(150,52)">
-                    <circle r="12" fill="#1F2A55" opacity=".18" />
-                    <circle r="6" fill="#1F2A55" />
-                    <circle r="2" fill="#F7F1E6" />
+                    <circle r="12" fill="#1B2A4A" opacity=".18" />
+                    <circle r="6" fill="#1B2A4A" />
+                    <circle r="2" fill="#F4EFE3" />
                   </g>
                 </svg>
                 <span className="absolute bottom-2 right-2 font-mono text-[10px] tracking-[.16em] uppercase text-ink/50 bg-paper/70 px-2 py-0.5 rounded">

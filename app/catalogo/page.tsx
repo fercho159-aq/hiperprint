@@ -83,6 +83,7 @@ export default function CatalogoPage() {
       <main>
         <PageHero
           kicker="CATÁLOGO · MZO 2026"
+          accent="cyan"
           title="Todo lo que"
           italic="hemos impreso."
           breadcrumb="Catálogo"

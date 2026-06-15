@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Montserrat, JetBrains_Mono } from "next/font/google";
+import { Big_Shoulders_Display, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 
-const montserrat = Montserrat({
+// Body — a clean, slightly characterful grotesque. Reads well at small sizes
+// across the catalogue's dense spec lists.
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const playfair = Playfair_Display({
+// Display — industrial, condensed, high-impact. Echoes the bold print-shop
+// headings of the corporate catalogue (S 001, "Material", "Características").
+const bigShoulders = Big_Shoulders_Display({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
+  weight: ["500", "600", "700", "800", "900"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -52,7 +55,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="es-MX"
-      className={`${montserrat.variable} ${playfair.variable} ${jetbrainsMono.variable}`}
+      className={`${hanken.variable} ${bigShoulders.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-sans">
         {children}

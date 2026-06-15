@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="bg-paper">
+        <section className="marble relative overflow-hidden">
           <div className="mx-auto max-w-site px-6 lg:px-10 py-10 lg:py-16">
             <Configurator product={product} />
           </div>

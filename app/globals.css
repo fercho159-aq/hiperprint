@@ -7,13 +7,13 @@
     scroll-behavior: smooth;
   }
   body {
-    color: #1a1a1a;
-    background: #fbf8f3;
+    color: #17213b;
+    background: #fbf8f2;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
   :focus-visible {
-    outline: 2px solid #1f2a55;
+    outline: 2px solid #c8102e;
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -28,7 +28,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.10  0 0 0 0 0.05  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.45'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.13  0 0 0 0 0.23  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.45'/></svg>");
     background-size: 320px 320px;
     mix-blend-mode: multiply;
     opacity: var(--grain-opacity, 0.32);
@@ -50,6 +50,91 @@
     pointer-events: none;
   }
 
+  /* ── Corporate motifs (from the catalogue) ─────────────────────────── */
+
+  /* Rombo / diamond pattern — the printed interior texture of the boxes,
+     echoing the four-triangle logomark. Tiles a faint navy diamond. */
+  .pattern-rombo {
+    background-color: #fbf8f2;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'><g fill='%2317213b' fill-opacity='0.10'><path d='M17 3 L31 17 L17 31 L3 17 Z'/></g><g stroke='%23fbf8f2' stroke-width='2.4' fill='none'><path d='M17 2 L17 32 M2 17 L32 17'/></g></svg>");
+    background-size: 34px 34px;
+  }
+  .pattern-rombo-dense {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22'><g fill='%2317213b' fill-opacity='0.14'><path d='M11 2 L20 11 L11 20 L2 11 Z'/></g><g stroke='%23fbf8f2' stroke-width='1.6' fill='none'><path d='M11 1 L11 21 M1 11 L21 11'/></g></svg>");
+    background-size: 22px 22px;
+  }
+  /* Light rombo for use over dark / saturated surfaces */
+  .pattern-rombo-light {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'><g fill='%23ffffff' fill-opacity='0.07'><path d='M17 3 L31 17 L17 31 L3 17 Z'/></g></svg>");
+    background-size: 34px 34px;
+  }
+
+  /* Solid colour panels with the rombo texture baked in — the catalogue's
+     alternating amarillo / cyan SKU pages. Navy diamonds read on both. */
+  .panel-amarillo {
+    background-color: #fdb913;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'><g fill='%2317213b' fill-opacity='0.11'><path d='M17 3 L31 17 L17 31 L3 17 Z'/></g><g stroke='%23fdb913' stroke-width='2.4' fill='none'><path d='M17 2 L17 32 M2 17 L32 17'/></g></svg>");
+    background-size: 34px 34px;
+  }
+  .panel-cyan {
+    background-color: #29abe2;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'><g fill='%2317213b' fill-opacity='0.12'><path d='M17 3 L31 17 L17 31 L3 17 Z'/></g><g stroke='%2329abe2' stroke-width='2.4' fill='none'><path d='M17 2 L17 32 M2 17 L32 17'/></g></svg>");
+    background-size: 34px 34px;
+  }
+  /* Tinted, low-key versions for large text areas (keeps copy legible) */
+  .panel-cyan-soft {
+    background-color: #e3f3fb;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'><g fill='%2329abe2' fill-opacity='0.16'><path d='M17 3 L31 17 L17 31 L3 17 Z'/></g><g stroke='%23e3f3fb' stroke-width='2.4' fill='none'><path d='M17 2 L17 32 M2 17 L32 17'/></g></svg>");
+    background-size: 34px 34px;
+  }
+  .panel-amarillo-soft {
+    background-color: #fdf3d6;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'><g fill='%23e1a300' fill-opacity='0.18'><path d='M17 3 L31 17 L17 31 L3 17 Z'/></g><g stroke='%23fdf3d6' stroke-width='2.4' fill='none'><path d='M17 2 L17 32 M2 17 L32 17'/></g></svg>");
+    background-size: 34px 34px;
+  }
+
+  /* Marble surface — the product-photo backdrop in the catalogue */
+  .marble {
+    background-color: #f1eee9;
+    background-image:
+      radial-gradient(120% 90% at 12% 0%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 45%),
+      radial-gradient(100% 80% at 90% 100%, rgba(41, 171, 226, 0.05) 0%, rgba(255, 255, 255, 0) 50%),
+      linear-gradient(135deg, rgba(23, 33, 59, 0.04) 0%, rgba(23, 33, 59, 0) 30%),
+      linear-gradient(60deg, rgba(23, 33, 59, 0.05) 0%, rgba(23, 33, 59, 0) 22%),
+      linear-gradient(180deg, #f7f5f1 0%, #e9e6e0 100%);
+  }
+
+  /* Sweeping curve — the catalogue's signature swoosh, used as a decorative
+     oversized disc that bleeds off an edge. Compose with positioning. */
+  .swoosh {
+    border-radius: 9999px;
+    pointer-events: none;
+  }
+  .swoosh-carmin {
+    background: radial-gradient(circle at 38% 38%, #d6213c 0%, #c8102e 55%, #9e0c24 100%);
+  }
+  .swoosh-cyan {
+    background: radial-gradient(circle at 38% 38%, #43bcf0 0%, #29abe2 55%, #1b86b8 100%);
+  }
+  .swoosh-amarillo {
+    background: radial-gradient(circle at 38% 38%, #ffcb3d 0%, #fdb913 55%, #e1a300 100%);
+  }
+  .swoosh-ring {
+    border: 3px solid rgba(200, 16, 46, 0.18);
+    background: transparent;
+  }
+
+  /* Orange corner wedge — the catalogue's lower-left accent (with leaf mark) */
+  .corner-wedge {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 88px 88px;
+    border-color: transparent transparent #f26522 transparent;
+    pointer-events: none;
+  }
+
   .reveal {
     opacity: 0;
     transform: translateY(18px);
@@ -68,7 +153,7 @@
     left: 0;
     width: 28px;
     height: 28px;
-    border: 1.5px solid rgba(26, 26, 26, 0.5);
+    border: 1.5px solid rgba(200, 16, 46, 0.55);
     border-radius: 999px;
     pointer-events: none;
     z-index: 2147483640;
@@ -86,8 +171,8 @@
   }
   .cursor-dot.active {
     transform: translate(-50%, -50%) scale(1.5);
-    background: rgba(31, 42, 85, 0.18);
-    border-color: rgba(31, 42, 85, 0.85);
+    background: rgba(200, 16, 46, 0.16);
+    border-color: rgba(200, 16, 46, 0.9);
   }
 
   @keyframes lineUp {
@@ -133,8 +218,8 @@
   .lift:hover {
     transform: translateY(-4px);
     box-shadow:
-      0 30px 60px -30px rgba(19, 25, 58, 0.25),
-      0 2px 0 rgba(19, 25, 58, 0.04);
+      0 30px 60px -30px rgba(27, 42, 74, 0.3),
+      0 2px 0 rgba(27, 42, 74, 0.05);
   }
   .lift:hover .lift-img {
     transform: scale(1.03);
@@ -144,8 +229,8 @@
   }
 
   .field {
-    background: #f7f1e6;
-    border: 1px solid rgba(26, 26, 26, 0.18);
+    background: #f4efe3;
+    border: 1px solid rgba(23, 33, 59, 0.18);
     border-radius: 8px;
     padding: 14px 16px;
     font-size: 15px;
@@ -157,10 +242,10 @@
   }
   .field:focus {
     outline: none;
-    border-color: #1f2a55;
+    border-color: #c8102e;
     border-width: 2px;
     padding: 13px 15px;
-    background: #fbf8f3;
+    background: #fbf8f2;
   }
 
   .btn {
@@ -169,37 +254,52 @@
     gap: 10px;
     padding: 14px 28px;
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 15px;
     letter-spacing: 0.005em;
     transition: all 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
     white-space: nowrap;
   }
   .btn-primary {
-    background: #1f2a55;
+    background: #1b2a4a;
     color: #f7f1e6;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px -8px rgba(31, 42, 85, 0.55);
-    background: #13193a;
+    box-shadow: 0 10px 24px -8px rgba(27, 42, 74, 0.55);
+    background: #12203b;
   }
   .btn-secondary {
-    border: 1.5px solid #1a1a1a;
-    color: #1a1a1a;
+    border: 1.5px solid #17213b;
+    color: #17213b;
   }
   .btn-secondary:hover {
-    background: #1a1a1a;
+    background: #17213b;
     color: #f7f1e6;
   }
-  .btn-tortilla {
-    background: #c25b2e;
-    color: #f7f1e6;
+  /* Vivid carmín CTA — the catalogue's primary accent */
+  .btn-tortilla,
+  .btn-carmin {
+    background: #c8102e;
+    color: #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
   }
-  .btn-tortilla:hover {
-    background: #9e4521;
-    color: #f7f1e6;
+  .btn-tortilla:hover,
+  .btn-carmin:hover {
+    transform: translateY(-2px);
+    background: #9e0c24;
+    color: #fff;
+    box-shadow: 0 10px 24px -8px rgba(200, 16, 46, 0.55);
+  }
+  .btn-amarillo {
+    background: #fdb913;
+    color: #17213b;
+  }
+  .btn-amarillo:hover {
+    transform: translateY(-2px);
+    background: #e1a300;
+    box-shadow: 0 10px 24px -8px rgba(225, 163, 0, 0.55);
   }
 
   .pill-eco {
@@ -208,13 +308,13 @@
     gap: 8px;
     padding: 7px 14px;
     border-radius: 999px;
-    background: #1f2a55;
-    color: #f7f1e6;
+    background: #c8102e;
+    color: #fff;
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .label-mono {
@@ -222,8 +322,8 @@
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(26, 26, 26, 0.6);
-    font-weight: 600;
+    color: rgba(23, 33, 59, 0.62);
+    font-weight: 700;
   }
 
   .stat-num {
@@ -235,8 +335,8 @@
 
   .placeholder-kraft {
     background:
-      repeating-linear-gradient(135deg, rgba(26, 26, 26, 0) 0 22px, rgba(26, 26, 26, 0.045) 22px 23px),
-      linear-gradient(180deg, #f7f1e6 0%, #ecddc0 100%);
+      repeating-linear-gradient(135deg, rgba(23, 33, 59, 0) 0 22px, rgba(23, 33, 59, 0.045) 22px 23px),
+      linear-gradient(180deg, #f7f5f1 0%, #e7e3dc 100%);
     position: relative;
     overflow: hidden;
   }
@@ -244,9 +344,9 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.08  0 0 0 0 0.04  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.09  0 0 0 0 0.13  0 0 0 0 0.23  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
     mix-blend-mode: multiply;
-    opacity: 0.35;
+    opacity: 0.3;
     pointer-events: none;
   }
   .placeholder-tag {
@@ -254,7 +354,7 @@
     font-size: 10.5px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(26, 26, 26, 0.62);
+    color: rgba(23, 33, 59, 0.62);
   }
 
   .mobile-menu {

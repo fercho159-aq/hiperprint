@@ -189,7 +189,7 @@ function Featured() {
 
 function AllClients() {
   return (
-    <section id="lista" className="bg-paper border-y border-ink/10">
+    <section id="lista" className="panel-cyan-soft border-y border-ink/10">
       <div className="mx-auto max-w-site px-6 lg:px-10 py-24 lg:py-32">
         <div className="mb-14 reveal">
           <div className="label-mono mb-4">
@@ -287,6 +287,7 @@ export default function ClientesPage() {
       <main>
         <PageHero
           kicker="2,000+ NEGOCIOS · 28 ESTADOS"
+          accent="cyan"
           title="Empacamos para"
           italic="México que cocina."
           breadcrumb="Clientes"
