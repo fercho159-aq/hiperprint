@@ -1,31 +1,24 @@
 import type { Metadata } from "next";
-import { Big_Shoulders_Display, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Archivo, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 
-// Body — a clean, slightly characterful grotesque. Reads well at small sizes
-// across the catalogue's dense spec lists.
-const hanken = Hanken_Grotesk({
+// Display + body — Archivo, a bold grotesque carrying the whole identity from
+// chunky 900-weight headings down to body copy. Vibrant, commercial, flat.
+const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
 });
 
-// Display — industrial, condensed, high-impact. Echoes the bold print-shop
-// headings of the corporate catalogue (S 001, "Material", "Características").
-const bigShoulders = Big_Shoulders_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  weight: ["500", "600", "700", "800", "900"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
+// Mono — Space Mono for kickers, labels and spec tags.
+const spaceMono = Space_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -55,7 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="es-MX"
-      className={`${hanken.variable} ${bigShoulders.variable} ${jetbrainsMono.variable}`}
+      className={`${archivo.variable} ${spaceMono.variable}`}
     >
       <body className="font-sans">
         {children}

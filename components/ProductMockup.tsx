@@ -1,43 +1,70 @@
 import type { ReactNode } from "react";
 
-export type MockupTone = "kraft" | "cream" | "paper" | "sage" | "deep" | "tortilla" | "ink";
-
 interface ProductMockupProps {
-  label: string;
-  tone?: MockupTone;
+  label?: string;
+  src?: string;
+  tone?: "kraft" | "cream" | "paper" | "sage" | "deep" | "tortilla" | "ink";
   aspect?: string;
   className?: string;
   note?: string;
+  fit?: "cover" | "contain";
+  bg?: string;
   children?: ReactNode;
 }
 
-const TONES: Record<MockupTone, string> = {
-  kraft: "placeholder-kraft",
-  cream: "bg-cream",
-  paper: "bg-paper",
-  sage: "bg-sage/80",
-  deep: "bg-kraftDeep",
-  tortilla: "bg-tortilla",
-  ink: "bg-ink",
-};
-
-// Tones with dark surfaces need light text. sage/deep/tortilla/ink all alias to
-// dark brand colors (navy, terracotta, ink) after the brand-palette migration.
-const DARK_TONES: MockupTone[] = ["sage", "deep", "tortilla", "ink"];
-
 export function ProductMockup({
   label,
+  src,
   tone = "kraft",
   aspect = "4/3",
   className = "",
   note,
+  fit = "cover",
+  bg = "#FFFFFF",
   children,
 }: ProductMockupProps) {
-  const textColor = DARK_TONES.includes(tone) ? "text-paper/80" : "text-ink/65";
+  if (src) {
+    return (
+      <div
+        className={`${className} relative w-full overflow-hidden rounded-2xl`}
+        style={{ aspectRatio: aspect === "auto" ? undefined : aspect, background: bg }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={label || "Producto Hiperprint"}
+          loading="lazy"
+          className="lift-img absolute inset-0 w-full h-full"
+          style={{ objectFit: fit }}
+        />
+        {children}
+        {note && (
+          <div className="absolute right-3 bottom-3">
+            <span className="font-mono text-[10px] tracking-[.16em] uppercase text-ink/70 bg-paper/85 px-2 py-1 rounded">
+              {note}
+            </span>
+          </div>
+        )}
+      </div>
+    );
+  }
+  const tones: Record<string, string> = {
+    kraft: "placeholder-kraft",
+    cream: "bg-cream",
+    paper: "bg-paper",
+    sage: "bg-blue",
+    deep: "bg-goldDeep",
+    tortilla: "bg-red",
+    ink: "bg-ink",
+  };
+  const textColor =
+    tone === "ink" || tone === "tortilla" || tone === "deep" || tone === "sage"
+      ? "text-paper/85"
+      : "text-ink/65";
   return (
     <div
-      className={`${TONES[tone]} ${className} relative w-full overflow-hidden rounded-lg fine-grain`}
-      style={{ aspectRatio: aspect }}
+      className={`${tones[tone] || "placeholder-kraft"} ${className} relative w-full overflow-hidden rounded-2xl fine-grain`}
+      style={{ aspectRatio: aspect === "auto" ? undefined : aspect }}
     >
       {children}
       <div className={`absolute left-4 top-4 ${textColor}`}>

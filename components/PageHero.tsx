@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type Accent = "carmin" | "cyan" | "amarillo";
+type HeroBg = "gold" | "blue" | "red";
 
 interface PageHeroProps {
   kicker: string;
@@ -8,95 +8,40 @@ interface PageHeroProps {
   italic?: string;
   lead?: string;
   breadcrumb?: string;
-  /** Brand accent for the swoosh + kicker pill. Mirrors the catalogue's
-   *  alternating coloured pages so each inner page has its own identity. */
-  accent?: Accent;
+  bg?: HeroBg;
 }
 
-const ACCENT: Record<Accent, { swoosh: string; pillBg: string; pillText: string }> = {
-  carmin: { swoosh: "swoosh-carmin", pillBg: "#c8102e", pillText: "#ffffff" },
-  cyan: { swoosh: "swoosh-cyan", pillBg: "#29abe2", pillText: "#ffffff" },
-  amarillo: { swoosh: "swoosh-amarillo", pillBg: "#fdb913", pillText: "#17213b" },
+const HERO_BG: Record<HeroBg, { bg: string; blob: string; text: string; sub: string; accent: string; crumb: string }> = {
+  gold: { bg: "#FDC42D", blob: "#E11D2A", text: "#181513", sub: "rgba(24,21,19,.72)", accent: "#E11D2A", crumb: "rgba(24,21,19,.6)" },
+  blue: { bg: "#1BA2DD", blob: "#FDC42D", text: "#FFFFFF", sub: "rgba(255,255,255,.88)", accent: "#FDC42D", crumb: "rgba(255,255,255,.78)" },
+  red: { bg: "#E11D2A", blob: "#FDC42D", text: "#FFFFFF", sub: "rgba(255,255,255,.9)", accent: "#FDC42D", crumb: "rgba(255,255,255,.8)" },
 };
 
-export function PageHero({
-  kicker,
-  title,
-  italic,
-  lead,
-  breadcrumb,
-  accent = "carmin",
-}: PageHeroProps) {
-  const a = ACCENT[accent];
+export function PageHero({ kicker, title, italic, lead, breadcrumb, bg = "gold" }: PageHeroProps) {
+  const c = HERO_BG[bg] || HERO_BG.gold;
   return (
-    <section className="grain marble relative overflow-hidden bg-kraft">
-      {/* Corporate motifs — sweeping curve, rombo texture and corner wedge */}
-      <div aria-hidden className="pointer-events-none absolute inset-0" style={{ zIndex: 0 }}>
-        <div
-          className="swoosh swoosh-ring hidden lg:block absolute"
-          style={{ width: 640, height: 640, right: -160, top: -200 }}
-        />
-        <div
-          className={`swoosh ${a.swoosh} hidden lg:block absolute`}
-          style={{ width: 520, height: 520, right: -220, top: -160, opacity: 0.12 }}
-        />
-        <div
-          className="pattern-rombo hidden lg:block absolute"
-          style={{
-            width: 180,
-            top: 0,
-            bottom: 0,
-            right: 0,
-            opacity: 0.5,
-            WebkitMaskImage: "linear-gradient(270deg,#000,transparent)",
-            maskImage: "linear-gradient(270deg,#000,transparent)",
-          }}
-        />
-        <span className="corner-wedge" style={{ left: 0, bottom: 0 }} />
-      </div>
-      <div className="mx-auto max-w-site px-6 lg:px-10 pt-16 lg:pt-24 pb-20 lg:pb-28 relative" style={{ zIndex: 1 }}>
-        <div className="flex items-center gap-3 mb-10 font-mono text-[11px] tracking-[.18em] uppercase text-ink/60">
-          <Link href="/" className="hover:text-ink">
-            Inicio
-          </Link>
-          <span className="text-ink/30">/</span>
-          <span className="text-ink">{breadcrumb || kicker}</span>
+    <section className="grain relative overflow-hidden" style={{ background: c.bg }}>
+      <div className="absolute -top-40 -right-32 w-[520px] h-[520px] rounded-full pointer-events-none" style={{ background: c.blob, opacity: 0.9 }} />
+      <div className="absolute -bottom-48 -left-24 w-[360px] h-[360px] rounded-full pointer-events-none" style={{ background: c.blob, opacity: 0.14 }} />
+      <div className="mx-auto max-w-site px-6 lg:px-10 pt-16 lg:pt-24 pb-20 lg:pb-28 relative">
+        <div className="flex items-center gap-3 mb-10 font-mono text-[11px] tracking-[.18em] uppercase font-bold" style={{ color: c.crumb }}>
+          <Link href="/" className="hover:opacity-70">Inicio</Link>
+          <span style={{ opacity: 0.5 }}>/</span>
+          <span style={{ color: c.text }}>{breadcrumb || kicker}</span>
         </div>
-        <div className="flex items-center gap-4 mb-8">
-          <span
-            className="pill-eco"
-            style={{ background: a.pillBg, color: a.pillText }}
-          >
-            {kicker}
-          </span>
-          <span className="h-px flex-1 max-w-[180px] bg-ink/20" />
+        <div className="flex items-center gap-4 mb-7">
+          <span className="font-mono text-[11px] tracking-[.18em] uppercase font-bold" style={{ color: c.text }}>{kicker}</span>
+          <span className="h-0.5 flex-1 max-w-[160px]" style={{ background: c.text, opacity: 0.3 }} />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-          <h1
-            className="lg:col-span-8 font-serif text-ink font-extrabold"
-            style={{ letterSpacing: "-0.035em", lineHeight: ".94", fontSize: "clamp(2.8rem, 7vw, 6rem)" }}
-          >
-            <span className="line-mask">
-              <span style={{ animationDelay: ".05s" }}>{title}</span>
-            </span>
+          <h1 className="lg:col-span-8 font-sans" style={{ color: c.text, fontWeight: 900, letterSpacing: "-0.035em", lineHeight: ".9", fontSize: "clamp(2.8rem, 7.5vw, 6.2rem)" }}>
+            <span className="line-mask"><span style={{ transitionDelay: ".05s" }}>{title}</span></span>
             {italic && (
-              <span className="line-mask">
-                <span
-                  className="font-medium italic text-leaf"
-                  style={{ animationDelay: ".18s" }}
-                >
-                  {italic}
-                </span>
-              </span>
+              <span className="line-mask"><span style={{ transitionDelay: ".18s", color: c.accent }}>{italic}</span></span>
             )}
           </h1>
           {lead && (
-            <p
-              className="lg:col-span-4 text-ink/75 text-[17px] lg:text-[18px] lg:pb-3"
-              style={{ lineHeight: 1.5 }}
-            >
-              {lead}
-            </p>
+            <p className="lg:col-span-4 text-[17px] lg:text-[18px] lg:pb-3 font-medium" style={{ color: c.sub, lineHeight: 1.5 }}>{lead}</p>
           )}
         </div>
       </div>
