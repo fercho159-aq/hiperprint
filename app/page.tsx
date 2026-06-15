@@ -77,7 +77,7 @@ function Hero() {
   );
   return (
     <section id="inicio" className="grain relative overflow-hidden" style={{ background: "#FDC42D" }}>
-      <div className="absolute top-[-120px] right-[-140px] w-[640px] h-[640px] rounded-full bg-red pointer-events-none" />
+      <div className="hidden md:block absolute top-[-120px] right-[-140px] w-[640px] h-[640px] rounded-full bg-red pointer-events-none" />
       <div className="absolute bottom-[-160px] left-[-120px] w-[420px] h-[420px] rounded-full bg-blue/15 pointer-events-none" />
       <div className="mx-auto max-w-site px-6 lg:px-10 pt-12 lg:pt-16 pb-20 lg:pb-24 min-h-[88vh] flex flex-col justify-center relative">
         <div className="mb-9 lg:mb-12">{kicker}</div>
