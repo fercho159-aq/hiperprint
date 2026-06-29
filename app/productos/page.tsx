@@ -263,7 +263,7 @@ export default function Page() {
         <PageHero
           kicker="FAMILIAS · 04"
           title="Cuatro familias,"
-          italic="una sola obsesión."
+          italic="un solo estándar."
           breadcrumb="Productos"
           bg="red"
           lead="Cajas, contenedores, charolas y conos. Cada familia troquelada y armada en cartulina kraft, con tirajes cortos y largos, a tu marca o con nuestros diseños base."

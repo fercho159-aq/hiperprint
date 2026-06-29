@@ -83,7 +83,7 @@ function Hero() {
         <div className="mb-9 lg:mb-12">{kicker}</div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           <div className="lg:col-span-7">
-            <h1 className="font-sans text-ink" style={{ fontWeight: 900, letterSpacing: "-0.04em", lineHeight: ".88", fontSize: "clamp(3rem, 8.2vw, 7.2rem)" }}>
+            <h1 className="font-sans text-ink" style={{ fontWeight: 900, letterSpacing: "-0.04em", lineHeight: ".88", fontSize: "clamp(3rem, 7.4vw, 7.2rem)" }}>
               <span className="line-mask"><span style={{ transitionDelay: ".05s" }}>Empacamos</span></span>
               <span className="line-mask"><span style={{ transitionDelay: ".18s" }}>tu <span style={{ color: "#E11D2A" }}>marca</span></span></span>
               <span className="line-mask"><span style={{ transitionDelay: ".30s" }}>en cada caja.</span></span>
@@ -151,8 +151,8 @@ function Products() {
           <div>
             <div className="label-mono mb-4">// LO QUE HACEMOS</div>
             <h2 className="font-serif text-ink" style={{ fontWeight: 900, letterSpacing: "-0.035em", lineHeight: .95, fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}>
-              Cuatro familias, <span style={{ color: "#E11D2A" }}>una sola obsesión</span>:<br/>
-              empaque que aguanta.
+              Cuatro familias, <span style={{ color: "#E11D2A" }}>un solo estándar</span>:<br/>
+              calidad en cada pieza.
             </h2>
           </div>
           <p className="text-ink/70 lg:max-w-sm text-[16px] lg:text-[17px] font-medium" style={{ lineHeight: 1.55 }}>
