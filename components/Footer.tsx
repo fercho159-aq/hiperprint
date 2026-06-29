@@ -50,7 +50,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo dark withTagline />
             <p className="mt-6 font-sans text-paper text-[26px] lg:text-[30px]" style={{ fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.05 }}>
-              Empaques con <span style={{ color: "#FDC42D" }}>sabor</span> a México.
+              Empaques fabricados <span style={{ color: "#FDC42D" }}>en México</span>.
             </p>
             <div className="mt-8 flex items-center gap-3">
               <a href="https://wa.me/525550875427" className="w-11 h-11 rounded-full border-2 border-paper/20 inline-flex items-center justify-center hover:bg-red hover:border-red transition" aria-label="WhatsApp"><Icon.wa className="w-4 h-4" /></a>

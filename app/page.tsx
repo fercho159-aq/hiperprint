@@ -85,8 +85,8 @@ function Hero() {
           <div className="lg:col-span-7">
             <h1 className="font-sans text-ink" style={{ fontWeight: 900, letterSpacing: "-0.04em", lineHeight: ".88", fontSize: "clamp(3rem, 8.2vw, 7.2rem)" }}>
               <span className="line-mask"><span style={{ transitionDelay: ".05s" }}>Empacamos</span></span>
-              <span className="line-mask"><span style={{ transitionDelay: ".18s" }}>los <span style={{ color: "#E11D2A" }}>antojos</span></span></span>
-              <span className="line-mask"><span style={{ transitionDelay: ".30s" }}>de México.</span></span>
+              <span className="line-mask"><span style={{ transitionDelay: ".18s" }}>tu <span style={{ color: "#E11D2A" }}>marca</span></span></span>
+              <span className="line-mask"><span style={{ transitionDelay: ".30s" }}>en cada caja.</span></span>
             </h1>
             <p className="mt-8 text-[18px] lg:text-[20px] text-ink/80 max-w-[36rem] font-medium" style={{ lineHeight: 1.45 }}>
               <strong className="text-ink" style={{ fontWeight: 800 }}>Cajas, contenedores, charolas y conos</strong> en cartulina kraft, resistentes a la grasa y listos para tu marca. Más de 15 años empacando comida rápida.
@@ -122,9 +122,9 @@ function Hero() {
 
 function Stats() {
   const items = [
-    { num: "15+", label: "Años imprimiendo México", sub: "Desde 2009" },
+    { num: "15+", label: "Años de experiencia", sub: "En el mercado desde 2009" },
     { num: "100+", label: "Productos en catálogo", sub: "Línea continua + temporadas" },
-    { num: "2,000+", label: "Clientes que confían", sub: "De Tijuana a Mérida" },
+    { num: "2,000+", label: "Empresas atendidas", sub: "Cobertura nacional" },
   ];
   return (
     <section className="bg-cream border-y border-ink/8">
@@ -199,7 +199,7 @@ function Eco() {
               Buenos con tu comida.<br/><span style={{ color: "#FDC42D" }}>Buenos</span> con el planeta.
             </h2>
             <p className="mt-8 text-paper/90 text-[17px] lg:text-[19px] max-w-[36rem] font-medium" style={{ lineHeight: 1.55 }}>
-              Nuestros empaques son <strong className="font-bold text-paper">biodegradables, reciclables y hechos con materias primas naturales</strong>. Cartulina grado alimenticio, tintas a base de agua y adhesivos sin solventes. Empacar rico no tiene por qué costarle al planeta.
+              Nuestros empaques son <strong className="font-bold text-paper">biodegradables, reciclables y hechos con materias primas naturales</strong>. Cartulina grado alimenticio, tintas a base de agua y adhesivos sin solventes. Empacar bien no tiene por qué costarle al planeta.
             </p>
             <div className="mt-10 flex items-center gap-4 flex-wrap">
               <span className="font-mono text-[11px] tracking-[.18em] uppercase text-paper/70 font-bold">CERTIFICACIONES</span>
@@ -235,12 +235,12 @@ function Why() {
           <div className="lg:col-span-5 reveal">
             <div className="label-mono mb-4">// POR QUÉ HIPERPRINT</div>
             <h2 className="font-serif text-ink" style={{ fontWeight: 700, letterSpacing: "-0.03em", lineHeight: .98, fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)" }}>
-              Imprenta de pueblo,<br/><em style={{ fontWeight: 500, color: "#E11D2A" }}>capacidad</em> industrial.
+              Planta propia,<br/><em style={{ fontWeight: 500, color: "#E11D2A" }}>capacidad</em> industrial.
             </h2>
           </div>
           <div className="lg:col-span-7 lg:pt-6 reveal">
             <p className="text-ink/75 text-[17px] lg:text-[18px]" style={{ lineHeight: 1.6 }}>
-              Llevamos quince años empacando hamburgueserías, taquerías, heladerías y panaderías de toda la república. Conocemos el oficio, hablamos tu idioma y respondemos como si fueras nuestro único cliente. Esa es la diferencia.
+              Quince años fabricando empaques para el sector alimentario en México. Operación integrada, atención personalizada y tiempos de respuesta directos, sin intermediarios.
             </p>
           </div>
         </div>
@@ -376,7 +376,7 @@ function ContactCTA() {
         <div className="reveal mb-14">
           <div className="label-mono mb-4">// HABLEMOS</div>
           <h2 className="font-serif text-ink" style={{ fontWeight: 700, letterSpacing: "-0.03em", lineHeight: .98, fontSize: "clamp(2.6rem, 6vw, 5rem)" }}>
-            ¿Listo para imprimir<br/><em style={{ fontWeight: 500, color: "#E11D2A" }}>algo bonito</em>?
+            ¿Listo para imprimir<br/><em style={{ fontWeight: 500, color: "#E11D2A" }}>tu próximo pedido</em>?
           </h2>
           <p className="mt-6 text-ink/70 text-[17px] lg:text-[18px] max-w-2xl" style={{ lineHeight: 1.55 }}>
             Cuéntanos qué necesitas y te respondemos con cotización formal en menos de 24 horas. Si prefieres, marca o escríbenos directo.

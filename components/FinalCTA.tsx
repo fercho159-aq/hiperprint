@@ -13,7 +13,7 @@ export function FinalCTA() {
             <h2 className="font-sans" style={{ fontWeight: 900, letterSpacing: "-0.035em", lineHeight: 0.92, fontSize: "clamp(2.4rem, 5.5vw, 4.8rem)" }}>
               ¿Listo para empacar
               <br />
-              <span style={{ color: "#FDC42D" }}>tus antojos?</span>
+              <span style={{ color: "#FDC42D" }}>tu próximo pedido?</span>
             </h2>
           </div>
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">

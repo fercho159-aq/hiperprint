@@ -7,7 +7,7 @@ import { ProductMockup } from "@/components/ProductMockup";
 import { SiteEffects } from "@/components/SiteEffects";
 
 const TIMELINE = [
-  { y: "2009", t: "Empieza la imprenta", b: "Una sola máquina offset en un taller de 80 m² en Iztapalapa. El primer cliente: una taquería de la colonia." },
+  { y: "2009", t: "Inicio de operaciones", b: "Una sola máquina offset en un taller de 80 m² en Iztapalapa. El primer cliente: un negocio de comida rápida en la zona." },
   { y: "2013", t: "Llega el grado alimenticio", b: "Importamos el primer papel siliconado para hamburgueserías. Cambia el rumbo del negocio." },
   { y: "2017", t: "Planta propia", b: "Mudamos a la nave de Ingenieros Mecánicos 91 — 1,200 m² entre producción, diseño y bodega." },
   { y: "2020", t: "Línea biodegradable", b: "Toda la oferta migra a papel certificado FSC y tintas a base de agua. Sin sobrecosto al cliente." },
@@ -16,10 +16,10 @@ const TIMELINE = [
 ];
 
 const VALUES = [
-  { n: "01", t: "Hecho aquí", b: "Producción 100% mexicana, en Iztapalapa. Cuando hablas a planta te contesta una persona real, no un call-center." },
-  { n: "02", t: "Bueno con el planeta", b: "Papel certificado, tintas a base de agua, residuos separados y reciclados. Sustentabilidad sin marketing." },
-  { n: "03", t: "Tirajes a tu medida", b: "500 piezas o 200,000 — los dos importan. La hamburguesería de barrio y la cadena de pizza salen iguales de prioritarias." },
-  { n: "04", t: "Hablamos claro", b: "Sin letras chiquitas, sin sorpresas en factura. Cotizamos lo que cobramos y entregamos lo que prometemos." },
+  { n: "01", t: "Producción local", b: "Fabricación 100% mexicana, en Iztapalapa. La atención directa es parte del servicio, no una excepción." },
+  { n: "02", t: "Sustentabilidad certificada", b: "Papel certificado, tintas a base de agua, residuos separados y reciclados. Compromisos con respaldo documental." },
+  { n: "03", t: "Tirajes a tu medida", b: "500 piezas o 200,000 — cada pedido recibe el mismo nivel de atención. Pequeñas empresas y grandes cadenas con los mismos estándares de producción." },
+  { n: "04", t: "Transparencia comercial", b: "Sin cargos ocultos ni sorpresas en factura. Cotizamos lo que cobramos y entregamos lo que prometemos." },
 ];
 
 const TEAM_STATS = [
@@ -44,14 +44,14 @@ function Intro() {
           <div className="lg:col-span-7 reveal">
             <span className="label-mono">// QUIENES SOMOS</span>
             <h2 className="mt-4 font-serif text-ink" style={{ fontWeight: 700, letterSpacing: "-0.03em", lineHeight: .98, fontSize: "clamp(2.4rem, 5.5vw, 4.8rem)" }}>
-              Imprimimos los <em style={{ fontWeight: 500, color: "#E11D2A" }}>antojos</em> de México desde 2009.
+              Fabricamos empaques para la <em style={{ fontWeight: 500, color: "#E11D2A" }}>industria alimentaria</em> desde 2009.
             </h2>
             <div className="mt-8 space-y-5 text-ink/75 text-[17px] lg:text-[18px]" style={{ lineHeight: 1.6 }}>
               <p>
-                Hiperprint empezó como un taller chiquito en Iztapalapa con una idea simple: las hamburgueserías, taquerías y heladerías de México merecían empaques tan buenos como los de cualquier cadena gringa, pero hechos aquí y con papel que sí se compostara.
+                Hiperprint nació en Iztapalapa con un objetivo claro: ofrecer a las empresas del sector alimentario en México empaques de calidad profesional, fabricados localmente con materias primas certificadas.
               </p>
               <p>
-                Quince años después seguimos en la misma colonia — solo que ahora con planta propia, 32 personas y producción para más de 2,000 negocios al año. Lo único que no ha cambiado es que cuando hablas, contesta alguien que conoce el oficio.
+                Hoy operamos con planta propia de 1,200 m², 32 personas en equipo y capacidad para atender a más de 2,000 empresas al año. Cada solicitud es atendida directamente por personal con conocimiento técnico del proceso.
               </p>
             </div>
           </div>
@@ -137,10 +137,10 @@ function Planta() {
           <div className="lg:col-span-5 reveal">
             <span className="label-mono">// LA PLANTA</span>
             <h2 className="mt-4 font-serif text-ink" style={{ fontWeight: 700, letterSpacing: "-0.03em", lineHeight: .98, fontSize: "clamp(2.2rem, 5vw, 4rem)" }}>
-              1,200 m² de papel,<br/>tinta y café.
+              1,200 m² de producción integrada.
             </h2>
             <p className="mt-6 text-ink/75 text-[16.5px]" style={{ lineHeight: 1.6 }}>
-              Nuestra planta en Iztapalapa concentra todo: pre-prensa, impresión offset y flexográfica, troquelado, armado y bodega. Sin maquila externa, sin intermediarios. Tu pedido nunca sale de la casa hasta que va contigo.
+              Nuestra planta en Iztapalapa concentra todo: pre-prensa, impresión offset y flexográfica, troquelado, armado y bodega. Sin maquila externa, sin intermediarios. Tu pedido no sale de planta sin pasar control de calidad.
             </p>
             <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6">
               {TEAM_STATS.map((s) => (
@@ -182,7 +182,7 @@ function EcoSection() {
                 Desde 2020 el 100% de nuestro papel viene de bosques con cadena de custodia FSC. Las tintas son a base de agua, los adhesivos sin solventes y el recorte se devuelve a la papelera para reciclaje continuo.
               </p>
               <p>
-                Medimos. Reportamos. Y publicamos los datos cada año en nuestro reporte de sustentabilidad. Si quieres verlo antes de cotizar, te lo pasamos sin pena.
+                Medimos, reportamos y publicamos los datos cada año en nuestro reporte de sustentabilidad. Disponible para consulta antes de cotizar.
               </p>
             </div>
             <a href="/catalogo/catalogo-hiperprint-2025.pdf" className="mt-8 inline-flex items-center gap-2 font-medium text-paper hover:gap-3 transition-all">
@@ -218,7 +218,7 @@ function Founders() {
           <div className="lg:col-span-5 reveal order-2 lg:order-1">
             <Icon.quote className="w-10 h-10 text-tortilla mb-4" />
             <blockquote className="font-serif text-ink" style={{ fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.15, fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}>
-              &quot;Empezamos imprimiendo volantes de taquería. Hoy una caja nuestra puede llegar a un food court en Mérida o a un puesto en Tlatelolco. Lo bonito es que las dos nos importan igual.&quot;
+              &quot;Empezamos con equipos básicos y un enfoque claro: entregar calidad sin importar el tamaño del pedido. Quince años después, ese principio sigue siendo el mismo.&quot;
             </blockquote>
             <div className="mt-8 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-leaf text-paper inline-flex items-center justify-center font-serif" style={{ fontWeight: 700, fontSize: 18 }}>AH</div>
@@ -248,7 +248,7 @@ export default function Page() {
           title="Una imprenta"
           italic="mexicana, completa."
           breadcrumb="Nosotros"
-          lead="15 años, una planta propia y un equipo que cree que un buen empaque empieza con respetar al cliente y al planeta."
+          lead="15 años de operación, planta propia en CDMX y un equipo comprometido con la calidad y la sostenibilidad en cada proceso."
         />
         <Intro />
         <Timeline />

@@ -105,7 +105,7 @@ const PROCESS = [
   { n: "01", t: "Cotizamos", b: "Mándanos medidas, tiraje y arte. Te respondemos con precio y tiempos en menos de 24 horas." },
   { n: "02", t: "Diseñamos", b: "Si no tienes arte, lo armamos contigo. Te pasamos prueba digital antes de imprimir." },
   { n: "03", t: "Producimos", b: "Imprimimos, troquelamos y armamos en planta propia. Control de calidad por lote." },
-  { n: "04", t: "Entregamos", b: "Flota propia en CDMX y paquetería confiable al resto del país. Bien estibado, sin maltratos." },
+  { n: "04", t: "Entregamos", b: "Flota propia en CDMX y paquetería certificada al resto del país. Entrega segura y en tiempo." },
 ];
 
 function ProductLine({ line, i }: { line: (typeof LINES)[number]; i: number }) {
@@ -192,7 +192,7 @@ function Process() {
         <div className="mb-14 reveal">
           <div className="label-mono mb-4" style={{ color: "rgba(245,239,224,.55)" }}>// CÓMO TRABAJAMOS</div>
           <h2 className="font-serif" style={{ fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 0.98, fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)" }}>
-            De la cotización a tu cocina,<br /><em style={{ fontWeight: 500, color: "#1BA2DD" }}>en cuatro pasos</em>.
+            De la cotización a tu puerta,<br /><em style={{ fontWeight: 500, color: "#1BA2DD" }}>en cuatro pasos</em>.
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-paper/15">
